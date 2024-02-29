@@ -1,0 +1,54 @@
+name: Bug Report
+description: Report a Dire bug
+labels: [bug]
+body:
+
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      options:
+        - label: **I CHECKED**, I am using the latest fix release
+          required: true
+        - label: **I CHECKED**, there are no issues on this matter already
+          required: true
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Library version"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Platform"
+      description: "(Windows/MacOS/Linux) (which?)"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Steps to reproduce"
+      description: "Exact steps to reproduce the issue, try to minimize it as much as possible."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Actual behaviour"
+      description: "A description of the behaviour."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Expected behavior"
+      description: "A description of the behaviour you expected."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Other information"
+      description: "Other information that could be helpful."

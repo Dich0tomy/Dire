@@ -1,0 +1,124 @@
+name: 'build & test'
+on:
+  push:
+    branches:
+      - 'trunk'
+  pull_request:
+  workflow_call:
+
+jobs:
+  flake-check:
+    name: Nix Flake Check
+    timeout-minutes: 2
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
+      - name: Nix Check
+        run: nix flake check .# -L --extra-experimental-features nix-command --extra-experimental-features flakes
+
+  linux:
+    name: ${{ matrix.build.runner }} ${{ matrix.build.cc }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        build:
+          [
+            { runner: ubuntu-22.04, buildsystem: meson, cc: clang, },
+            { runner: ubuntu-22.04, buildsystem: cmake, cc: clang, },
+            { runner: ubuntu-22.04, buildsystem: meson, cc: gcc, },
+            { runner: ubuntu-22.04, buildsystem: cmake, cc: gcc, },
+          ]
+    runs-on: ${{ matrix.build.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
+      - if: ${{ matrix.build.buildsystem == 'meson' && matrix.build.cc == 'clang' }}
+        name: ${{ matrix.build.buildsystem }} ${{ matrix.build.cc }} 
+        run: |
+          nix develop .#ciClang -L --extra-experimental-features nix-command --extra-experimental-features flakes
+          just -f ./ci/Justfile build-and-test-linux
+      - if: ${{ matrix.build.buildsystem == 'meson' && matrix.build.cc == 'gcc' }}
+        name: ${{ matrix.build.buildsystem }} ${{ matrix.build.cc }} 
+        run: |
+          nix develop .#ciGcc -L --extra-experimental-features nix-command --extra-experimental-features flakes
+          just -f ./ci/Justfile build-and-test-linux
+      - if: ${{ matrix.build.buildsystem == 'cmake' && matrix.build.cc == 'clang' }}
+        name: ${{ matrix.build.buildsystem }} ${{ matrix.build.cc }} 
+        run: |
+          nix develop .#ciGcc \
+            -L \
+            --extra-experimental-features \
+            nix-command \
+            --extra-experimental-features \
+            flakes
+          cmake -S . -B build -D CMAKE_BUILD_TYPE='Debug' && cmake --build build --parallel 16 && ./build/src/test/dire_test
+      - if: ${{ matrix.build.buildsystem == 'cmake' && matrix.build.cc == 'gcc' }}
+        name: ${{ matrix.build.buildsystem }} ${{ matrix.build.cc }} 
+        run: |
+          nix develop .#ciClang \
+            -L \
+            --extra-experimental-features \
+            nix-command \
+            --extra-experimental-features \
+            flakes
+          cmake -S . -B build -D CMAKE_BUILD_TYPE='Debug' && cmake --build build --parallel 16 && ./build/src/test/dire_test
+
+  darwin:
+    name: ${{ matrix.build.runner }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        build:
+          [
+            { runner: macos-14 },
+            { runner: macos-13 },
+            { runner: macos-12 },
+          ]
+    runs-on: ${{ matrix.build.runner }}
+    env:
+      CC: clang
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
+      - name: Nix Check
+        run: nix flake check .# -L --extra-experimental-features nix-command --extra-experimental-features flakes
+
+  windows:
+    name: ${{ matrix.build.runner }} ${{ matrix.build.buildsystem }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        build:
+          [
+            { runner: windows-2022, buildsystem: meson },
+            { runner: windows-2022, buildsystem: cmake },
+          ]
+    runs-on: ${{ matrix.build.runner }}
+    env:
+      CC: clang
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - if: ${{ matrix.build.buildsystem == 'cmake' }}
+        name: Build & Test
+        run: |
+          $PSNativeCommandArgumentPassing = 'Legacy'
+
+          cmake -S . -B build -D CMAKE_BUILD_TYPE='Debug'
+          cmake --build build --parallel 16
+          .\build\src\test\Debug\dire_test
+
+      - if: ${{ matrix.build.buildsystem == 'meson' }}
+        name: Build & Test
+        run: |
+          pip install meson ninja
+          choco install just --version 1.23.0
+          choco install meson --version 1.2.0
+          just -f ./ci/Justfile build-and-test-windows
