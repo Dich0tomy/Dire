@@ -1,0 +1,15 @@
+# Technically this should be make, should it tho?
+debug_build_dir := "build_debug"
+
+setup:
+	meson setup {{ debug_build_dir }}
+	meson compile -C {{ debug_build_dir }} dire_test
+
+run:
+	./{{ debug_build_dir }}/src/test/dire_test
+
+build-and-test-linux: setup && run
+	meson configure --buildtype debug --debug -Db_lundef=false -Db_sanitize=address,undefined --warnlevel 3 {{ debug_build_dir }}
+
+build-and-test-windows: setup && run
+	meson configure --buildtype debug --debug -Dbackend=vs2022 -Db_sanitize=address,undefined --warnlevel 3 {{ debug_build_dir }}
