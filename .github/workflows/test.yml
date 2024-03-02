@@ -3,8 +3,17 @@ on:
   push:
     branches:
       - 'trunk'
+    paths: 
+      - '**.cpp'
+      - '**.hpp'
   pull_request:
+    paths: 
+      - '**.cpp'
+      - '**.hpp'
   workflow_call:
+    paths: 
+      - '**.cpp'
+      - '**.hpp'
 
 jobs:
   flake-check:
