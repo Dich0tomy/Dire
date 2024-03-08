@@ -17,7 +17,7 @@ TODO:
 - [x] Package with Nix \[ "lib" "dev" "bin " ]
 - [x] Add proper meson building (with subprojects)
 - [x] Add proper CMake building (with FetchContent)
-- [x] Add proper license :))))
+- [x] Add proper license :)))
 - [x] Remove CTRE fir xdg parsing
 - [x] CI
 	- [x] Linux - Nix with { CMake, Meson } x { Gcc, Clang }
