@@ -12,9 +12,10 @@ jobs:
   generate:
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout repo & submodules
       - uses: actions/checkout@v4
-      - name: Checkout doxygen-awesome
-        uses: textbook/git-checkout-submodule-action@master
+        with:
+          submodules: recursive
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.9.8
         with:
