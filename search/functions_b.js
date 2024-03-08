@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['operator_20path_0',['operator path',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html#a677de91803462a3a3023476d6f9b4424',1,'dire::project::IReallyWantMyOwnPlatformProjectName::operator Path()'],['../classdire_1_1project_1_1PlatformProjectName.html#a4bcd894e88e171c75856099098a9a145',1,'dire::project::PlatformProjectName::operator Path()']]],
-  ['operator_20path_20const_20_26_1',['operator path const &amp;',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html#a2e3526afc2b9ab86b415e1019067d486',1,'dire::project::IReallyWantMyOwnPlatformProjectName::operator Path const &amp;()'],['../classdire_1_1project_1_1PlatformProjectName.html#afa7291f2ce5b6a067738cf7d63e1b1cb',1,'dire::project::PlatformProjectName::operator Path const &amp;()']]]
+  ['picture_5fdir_0',['picture_dir',['../namespacedire_1_1user.html#aece103c4215fd6693ce8c835b6208def',1,'dire::user']]],
+  ['platformprojectname_1',['PlatformProjectName',['../classdire_1_1project_1_1PlatformProjectName.html#ab8ac18767324a4a3dbef2118ecb8697c',1,'dire::project::PlatformProjectName']]],
+  ['preference_5fdir_2',['preference_dir',['../namespacedire_1_1base.html#a5e286d16f976100a4a4282565be11cfa',1,'dire::base::preference_dir()'],['../namespacedire_1_1project.html#a2e0bbb14355911a7c5e84503940bdb70',1,'dire::project::preference_dir()']]],
+  ['preference_5fdir_5ffrom_5fhome_3',['preference_dir_from_home',['../namespacedire_1_1base_1_1detail.html#aba85568acc5c1036a75d5f57420f4002',1,'dire::base::detail']]],
+  ['public_5fdir_4',['public_dir',['../namespacedire_1_1user.html#abc4962000fa5a6f23b9b5f059e851002',1,'dire::user']]]
 ];

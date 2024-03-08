@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['example_0',['Example',['../classMyLibrary_1_1Example.html',1,'MyLibrary']]]
+  ['ireallywantmyownplatformprojectname_0',['IReallyWantMyOwnPlatformProjectName',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html',1,'dire::project']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['name_0',['name',['../classdire_1_1project_1_1PlatformProjectName.html#ae07d1c56be1883dae84bd602ef323c01',1,'dire::project::PlatformProjectName::name'],['../namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd',1,'dire::project::name()']]],
-  ['navigation_1',['Page Navigation',['../md_docs_2doxygen_2doxygen-awesome-css_2docs_2extensions.html#extension-page-navigation',1,'']]],
-  ['npm_20xpm_20dependency_2',['npm/xpm dependency',['../md_docs_2doxygen_2doxygen-awesome-css_2README.html#autotoc_md39',1,'']]]
+  ['operator_20path_0',['operator path',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html#a677de91803462a3a3023476d6f9b4424',1,'dire::project::IReallyWantMyOwnPlatformProjectName::operator Path()'],['../classdire_1_1project_1_1PlatformProjectName.html#a4bcd894e88e171c75856099098a9a145',1,'dire::project::PlatformProjectName::operator Path()']]],
+  ['operator_20path_20const_20_26_1',['operator path const &amp;',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html#a2e3526afc2b9ab86b415e1019067d486',1,'dire::project::IReallyWantMyOwnPlatformProjectName::operator Path const &amp;()'],['../classdire_1_1project_1_1PlatformProjectName.html#afa7291f2ce5b6a067738cf7d63e1b1cb',1,'dire::project::PlatformProjectName::operator Path const &amp;()']]],
+  ['optional_2',['Optional',['../namespacedire.html#a4e5a27eb337e9b7d217e6ca9e41ec10a',1,'dire']]],
+  ['other_20implementations_3',['Differences between this and other implementations',['../md_docs_2differences.html',1,'']]]
 ];
