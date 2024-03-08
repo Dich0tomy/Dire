@@ -13,6 +13,8 @@
 
 !CMakeLists.txt
 
+!Doxyfile
+
 !meson.build
 !meson_options.txt
 
