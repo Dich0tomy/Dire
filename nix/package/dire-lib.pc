@@ -1,7 +1,0 @@
-prefix=@out@
-libdir=${prefix}/lib
-
-Name: libdire
-Description: Complete cross-platform data and user dirs discovery.
-Version: @version@
-Libs: -L${libdir}/ -ldire

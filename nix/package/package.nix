@@ -4,6 +4,7 @@
   nativeDeps,
   buildDeps,
   rootDir,
+<<<<<<< Updated upstream
   version,
 }: let
   dire-pkgconfig-dev = pkgs.substituteAll {
@@ -18,14 +19,23 @@
   direBase = pkgs.stdenv.mkDerivation {
     pname = "dire";
     version = "0.1.0";
+=======
+	version,
+}: let
+	dire-pkgconfig = pkgs.substituteAll { src = ./dire.pc; inherit version; };
+	in pkgs.stdenv.mkDerivation {
+	pname = "dire";
+	inherit version;
+>>>>>>> Stashed changes
 
-    src = rootDir;
+	outputs = ["out" "dev"];
 
-    strictDeps = true;
-    enableParallelBuilding = true;
+	strictDeps = true;
+	enableParallelBuilding = true;
 
-    dontUseCmakeConfigure = true;
+	dontUseCmakeConfigure = true;
 
+<<<<<<< Updated upstream
     # out - dire lib without headers
     # dev - dire lib with headers
     outputs = ["out" "dev"];
@@ -50,10 +60,29 @@
       substituteAll ${dire-pkgconfig-lib} $out/lib/pkgconfig/dire.pc
     '';
   };
+=======
+	nativeBuildInputs = nativeDeps;
 
-  direRelease = direBase.overrideAttrs {
-    mesonBuildType = "release";
+	buildInputs = buildDeps;
 
+	src = rootDir;
+
+	mesonBuildType = "release";
+
+	mesonFlagsArray = [(lib.mesonBool "strip" true)];
+
+	buildPhase = ''
+		meson compile dire:static_library
+	'';
+
+	installPhase = ''
+		mkdir -p {$dev,$out}/lib $dev/lib/pkgconfig $dev/include
+>>>>>>> Stashed changes
+
+		cp src/lib/libdire.a $out/lib
+		cp src/lib/libdire.a $dev/lib
+
+<<<<<<< Updated upstream
     mesonFlagsArray = [(lib.mesonBool "strip" true)];
   };
 
@@ -86,4 +115,10 @@
 in {
   inherit direRelease;
   inherit direTest;
+=======
+		cp -r $src/src/lib/include/* $dev/include
+
+		substituteAll ${dire-pkgconfig} $dev/lib/pkgconfig/dire.pc
+	'';
+>>>>>>> Stashed changes
 }
