@@ -1,3 +1,6 @@
 add_subdirectory("lib")
 add_subdirectory("app")
-add_subdirectory("test")
+
+if(DIRE_BUILD_TESTS)
+	add_subdirectory("test")
+endif()

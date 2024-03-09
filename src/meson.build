@@ -1,3 +1,6 @@
 subdir('lib')
 subdir('app')
-subdir('test')
+
+if(get_option('build_tests'))
+	subdir('test')
+endif
