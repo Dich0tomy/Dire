@@ -11,4 +11,4 @@ build-and-test-linux: && compile run
 	meson setup {{ debug_build_dir }} --buildtype debug --debug -Dbuild_tests=true -Db_lundef=false -Db_sanitize=address,undefined --warnlevel 3
 
 build-and-test-windows: && compile run
-	meson setup {{ debug_build_dir }} --buildtype debug --debug -Dbuild_tests=true -Dbackend=vs2022 -Db_sanitize=address,undefined --warnlevel 3
+	meson setup {{ debug_build_dir }} --buildtype debug --debug -Dbuild_tests=true -Dbackend=vs2022 -Db_sanitize=address --warnlevel 3
