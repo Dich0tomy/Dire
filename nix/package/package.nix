@@ -4,7 +4,17 @@
   nativeDeps,
   buildDeps,
   rootDir,
+  version,
 }: let
+  dire-pkgconfig-dev = pkgs.substituteAll {
+    src = ./dire-dev.pc;
+    inherit version;
+  };
+  dire-pkgconfig-lib = pkgs.substituteAll {
+    src = ./dire-dev.pc;
+    inherit version;
+  };
+
   direBase = pkgs.stdenv.mkDerivation {
     pname = "dire";
     version = "0.1.0";
@@ -16,46 +26,35 @@
 
     dontUseCmakeConfigure = true;
 
-    # out - dire app
+    # out - dire lib without headers
     # dev - dire lib with headers
-    # lib - dire lib without headers
-    outputs = ["out" "lib" "dev"];
+    outputs = ["out" "dev"];
 
     nativeBuildInputs = nativeDeps;
     buildInputs = buildDeps;
+
     preBuild = ''
       mkdir -p $dev/include
-      cp -r $src/include/* $dev/include
+      cp -r $src/lib/include/* $dev/include
     '';
 
-    buildPhase = "meson compile dire:static_library dire:executable";
+    buildPhase = "meson compile dire:static_library";
 
     installPhase = ''
-      mkdir -p {$lib,$dev,$out}/lib/pkgconfig $out/bin
+      mkdir -p {$dev,$out}/lib/pkgconfig
 
-      cp src/lib/libdire.a $lib/lib
       cp src/lib/libdire.a $dev/lib
       cp src/lib/libdire.a $out/lib
 
-      substituteAll ${./dire-dev.pc} $dev/lib/pkgconfig/dire.pc
-      substituteAll ${./dire-dev.pc} $out/lib/pkgconfig/dire.pc
-      substituteAll ${./dire-lib.pc} $lib/lib/pkgconfig/dire.pc
-
-      cp src/app/dire $out/bin
+      substituteAll ${dire-pkgconfig-dev} $dev/lib/pkgconfig/dire.pc
+      substituteAll ${dire-pkgconfig-lib} $out/lib/pkgconfig/dire.pc
     '';
   };
 
   direRelease = direBase.overrideAttrs {
     mesonBuildType = "release";
 
-    mesonFlagsArray = [
-      (lib.mesonBool "strip" true)
-    ];
-
-    meta = {
-      mainProgram = "dire";
-      outputs = ["out" "lib" "dev"];
-    };
+    mesonFlagsArray = [(lib.mesonBool "strip" true)];
   };
 
   direTest = direBase.overrideAttrs {
@@ -72,7 +71,7 @@
     mesonFlags = [
       "--warnlevel=3"
       (lib.mesonOption "b_lundef" "false")
-      # (lib.mesonOption "cpp_debugstl" "true")
+      (lib.mesonOption "cpp_debugstl" "true")
       (lib.mesonOption "b_sanitize" "address,undefined")
     ];
 

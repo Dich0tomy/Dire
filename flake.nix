@@ -57,7 +57,9 @@
 
         rootDir = ./.;
 
-        package = import ./nix/package/package.nix {inherit pkgs buildDeps nativeDeps rootDir lib;};
+				version = (builtins.readFile ./VERSION);
+
+        package = import ./nix/package/package.nix {inherit pkgs buildDeps nativeDeps rootDir lib version;};
       in {
         formatter = pkgs.alejandra;
 
