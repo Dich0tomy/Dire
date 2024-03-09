@@ -2,9 +2,12 @@ cmake_minimum_required( VERSION 3.5 )
 
 set(CMAKE_CXX_STANDARD 20)
 
+file(READ "./VERSION" DIRE_VERSION)
+string(STRIP "${DIRE_VERSION}" DIRE_VERSION) # File reads in the trailing \n
+
 project(
 	Dire
-	VERSION 0.1.0
+	VERSION ${DIRE_VERSION}
 	DESCRIPTION "Complete cross-platform solution for data and user directories discovery."
 	LANGUAGES CXX
 )
