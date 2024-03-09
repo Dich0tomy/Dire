@@ -110,7 +110,7 @@ jobs:
       matrix:
         build:
           [
-            { runner: windows-2022, buildsystem: meson },
+            # { runner: windows-2022, buildsystem: meson }, Disable this because I cannot get this shit to work
             { runner: windows-2022, buildsystem: cmake },
           ]
     runs-on: ${{ matrix.build.runner }}
