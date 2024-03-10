@@ -4,42 +4,48 @@
   nativeDeps,
   buildDeps,
   rootDir,
-	version,
+  version,
 }: let
-	dire-pkgconfig = pkgs.substituteAll { src = ./dire.pc; inherit version; };
-	in pkgs.stdenv.mkDerivation {
-	pname = "dire";
-	inherit version;
+  dire-pkgconfig = pkgs.substituteAll {
+    src = ./dire.pc;
+    inherit version;
+  };
+in
+  pkgs.stdenv.mkDerivation {
+    pname = "dire";
+    inherit version;
 
-	outputs = ["out" "dev"];
+    outputs = ["out" "dev"];
 
-	strictDeps = true;
-	enableParallelBuilding = true;
+    strictDeps = true;
+    enableParallelBuilding = true;
 
-	dontUseCmakeConfigure = true;
+    dontUseCmakeConfigure = true;
 
-	nativeBuildInputs = nativeDeps;
+    nativeBuildInputs = nativeDeps;
 
-	buildInputs = buildDeps;
+    buildInputs = buildDeps;
 
-	src = rootDir;
+    src = rootDir;
 
-	mesonBuildType = "release";
+    mesonBuildType = "release";
 
-	mesonFlagsArray = [(lib.mesonBool "strip" true)];
+    mesonFlagsArray = [
+      (lib.mesonBool "strip" true)
+    ];
 
-	buildPhase = ''
-		meson compile dire:static_library
-	'';
+    buildPhase = ''
+      meson compile dire
+    '';
 
-	installPhase = ''
-		mkdir -p {$dev,$out}/lib $dev/lib/pkgconfig $dev/include
+    installPhase = ''
+      mkdir -p {$dev,$out}/lib $dev/lib/pkgconfig $dev/include
 
-		cp src/lib/libdire.a $out/lib
-		cp src/lib/libdire.a $dev/lib
+      cp src/lib/libdire.a $out/lib
+      cp src/lib/libdire.a $dev/lib
 
-		cp -r $src/src/lib/include/* $dev/include
+      cp -r $src/src/lib/include/* $dev/include
 
-		substituteAll ${dire-pkgconfig} $dev/lib/pkgconfig/dire.pc
-	'';
-}
+      substituteAll ${dire-pkgconfig} $dev/lib/pkgconfig/dire.pc
+    '';
+  }
