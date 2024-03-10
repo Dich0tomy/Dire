@@ -23,8 +23,12 @@
         self',
         ...
       }: let
-        pre-commit-check = pre-commit-hooks.lib.${system}.run {
-          src = ./.;
+        rootDir = ./.;
+
+        version = lib.strings.fileContents ./VERSION;
+
+        preCommitCheck = pre-commit-hooks.lib.${system}.run {
+          src = rootDir;
 
           tools = pkgs // {clang-tools = pkgs.clang-tools_16;};
 
@@ -43,31 +47,22 @@
             pkgs.catch2_3
             pkgs.fmt
           ]
-          ++ pkgs.callPackage ./nix/dependencies.nix {inherit pkgs;};
+          ++ import ./nix/dependencies.nix {inherit pkgs;};
 
         nativeDeps = [
-          pkgs.doxygen
-          pkgs.graphviz
-
           pkgs.meson
-          pkgs.cmake
           pkgs.ninja
           pkgs.pkg-config
         ];
-
-        rootDir = ./.;
-
-        version = builtins.readFile ./VERSION;
 
         package = import ./nix/package/package.nix {inherit pkgs buildDeps nativeDeps rootDir lib version;};
       in {
         formatter = pkgs.alejandra;
 
         packages.default = package;
-				packages.dev = package.dev;
 
         devShells = import ./nix/shell.nix {
-          inherit pkgs buildDeps nativeDeps pre-commit-check;
+          inherit pkgs buildDeps nativeDeps preCommitCheck;
         };
       };
     };

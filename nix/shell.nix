@@ -2,22 +2,19 @@
   pkgs,
   nativeDeps,
   buildDeps,
-  pre-commit-check,
+  preCommitCheck,
   ...
 }: let
-	basePackages = [
-		pkgs.meson
-		pkgs.ninja
-		pkgs.just 
-
-		pkgs.doxygen
-		pkgs.graphviz
-	];
+  shellDeps = [
+    pkgs.doxygen
+    pkgs.cmake
+    pkgs.graphviz
+  ];
 
   baseShellAttrs = {
     hardeningDisable = ["all"];
 
-    packages = nativeDeps ++ basePackages;
+    packages = nativeDeps ++ shellDeps;
 
     buildInputs = buildDeps;
   };
@@ -30,14 +27,16 @@
 
   ciClang = pkgs.mkShell.override {stdenv = clangStdenv;} baseShellAttrs;
 
-  devPackages = [
-    pkgs.act
-  ] ++ basePackages;
+  devPackages =
+    [
+      pkgs.act
+    ]
+    ++ shellDeps;
 
   baseDevShellAttrs =
     baseShellAttrs
     // {
-      inherit (pre-commit-check) shellHook;
+      inherit (preCommitCheck) shellHook;
 
       packages = baseShellAttrs.packages ++ devPackages;
     };
