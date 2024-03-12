@@ -62,15 +62,16 @@ auto bundle() -> Optional<UserDirsBundle>
 	return { {
 		.home_dir = *home,
 
-		.font_dir = concat_font_dir(*home),
 		.audio_dir = concat_audio_dir(*home),
 		.desktop_dir = concat_desktop_dir(*home),
 		.document_dir = concat_document_dir(*home),
 		.download_dir = concat_download_dir(*home),
 		.picture_dir = concat_picture_dir(*home),
-		.public_dir = concat_public_dir(*home),
-		.template_dir = {},
 		.video_dir = concat_video_dir(*home),
+		.public_dir = concat_public_dir(*home),
+
+		.font_dir = concat_font_dir(*home),
+		.template_dir = {},
 	} };
 }
 
