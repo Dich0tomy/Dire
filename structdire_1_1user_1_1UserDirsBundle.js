@@ -8,6 +8,6 @@ var structdire_1_1user_1_1UserDirsBundle =
     [ "home_dir", "structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9", null ],
     [ "picture_dir", "structdire_1_1user_1_1UserDirsBundle.html#a0314843c8b2f7a9caa7c4c1c0a5f9523", null ],
     [ "public_dir", "structdire_1_1user_1_1UserDirsBundle.html#aabc4fbb2f7d3ff88021911de1ae108e4", null ],
-    [ "template_dir", "structdire_1_1user_1_1UserDirsBundle.html#ab84f4725e87ab5845b9f8871bf73ae8f", null ],
+    [ "template_dir", "structdire_1_1user_1_1UserDirsBundle.html#a16cac7b6047601b3f6c3d7b3081f4a18", null ],
     [ "video_dir", "structdire_1_1user_1_1UserDirsBundle.html#a76687b854a1097839d7c57bf3163e15e", null ]
 ];
