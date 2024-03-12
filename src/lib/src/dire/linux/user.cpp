@@ -67,15 +67,16 @@ auto bundle() -> Optional<UserDirsBundle>
 	return { {
 		.home_dir = *home,
 
-		.font_dir = ::font_dir_from_home(*home),
 		.audio_dir = ::audio_dir_from_home(*home),
 		.desktop_dir = ::desktop_dir_from_home(*home),
 		.document_dir = ::document_dir_from_home(*home),
 		.download_dir = ::download_dir_from_home(*home),
 		.picture_dir = ::picture_dir_from_home(*home),
-		.public_dir = ::public_dir_from_home(*home),
-		.template_dir = ::template_dir_from_home(*home),
 		.video_dir = ::video_dir_from_home(*home),
+		.public_dir = ::public_dir_from_home(*home),
+
+		.font_dir = ::font_dir_from_home(*home),
+		.template_dir = ::template_dir_from_home(*home),
 	} };
 }
 

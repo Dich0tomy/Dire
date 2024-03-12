@@ -23,13 +23,15 @@ struct BaseDirsBundle
 auto bundle() -> Optional<BaseDirsBundle>;
 
 auto home_dir() -> Optional<Path>;
+
 auto cache_dir() -> Optional<Path>;
 auto config_dir() -> Optional<Path>;
 auto config_local_dir() -> Optional<Path>;
 auto data_dir() -> Optional<Path>;
 auto data_local_dir() -> Optional<Path>;
-auto executable_dir() -> Optional<Path>;
 auto preference_dir() -> Optional<Path>;
+
+auto executable_dir() -> Optional<Path>;
 auto runtime_dir() -> Optional<Path>;
 auto state_dir() -> Optional<Path>;
 
