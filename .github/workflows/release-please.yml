@@ -18,8 +18,8 @@ jobs:
         id: release
         with:
           release-type: simple
-          package-name: dire
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          version-file: ./VERSION
       - uses: actions/checkout@v4
       - name: Tag major nad minor versions
         if: ${{ steps.release.outputs.release_created }}
