@@ -2,7 +2,7 @@ prefix=@out@
 includedir=${prefix}/include
 libdir=${prefix}/lib
 
-Name: libdire
+Name: dire
 Description: Complete cross-platform data and user dirs discovery.
 Version: @version@
 Libs: -L${libdir}/ -ldire
