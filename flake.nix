@@ -59,7 +59,8 @@
       in {
         formatter = pkgs.alejandra;
 
-        packages.default = package;
+        packages.dev = package.dev;
+				packages.default = package.out;
 
         devShells = import ./nix/shell.nix {
           inherit pkgs buildDeps nativeDeps preCommitCheck;
