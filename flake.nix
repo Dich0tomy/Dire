@@ -59,16 +59,13 @@
         formatter = pkgs.alejandra;
 
         _module.args = {
-					inherit rootDir version nativeDeps buildDeps;
+					inherit rootDir version nativeDeps buildDeps preCommitCheck;
         };
 
         imports = [
         	./nix/package
+        	./nix/shell
         ];
-
-        devShells = import ./nix/shell.nix {
-          inherit pkgs buildDeps nativeDeps preCommitCheck;
-        };
       };
     };
 }

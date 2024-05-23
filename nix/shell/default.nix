@@ -51,5 +51,7 @@
 
   devGcc = pkgs.mkShell.override {stdenv = gccStdenv;} baseDevShellAttrs;
 in {
-  inherit ciGcc ciClang devGcc devClang;
+	devShells = {
+		inherit ciGcc ciClang devGcc devClang;
+	};
 }
