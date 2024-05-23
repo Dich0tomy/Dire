@@ -4,7 +4,7 @@
   nativeDeps,
   buildDeps,
   rootDir,
-  version,
+  version
 }:
   pkgs.stdenv.mkDerivation {
     pname = "dire";
