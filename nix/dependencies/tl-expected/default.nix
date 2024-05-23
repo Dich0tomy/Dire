@@ -1,23 +1,30 @@
 {
-  pkgs,
-  version,
+  stdenv,
+  cmake,
+  fetchFromGitHub
 }:
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation (self: {
   pname = "expected";
-  inherit version;
+  version = "1.1.0";
 
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "TartanLlama";
     repo = "expected";
-    rev = "v${version}";
+    rev = "v${self.version}";
     sha256 = "sha256-AuRU8VI5l7Th9fJ5jIc/6mPm0Vqbbt6rY8QCCNDOU50=";
   };
 
-  nativeBuildInputs = [pkgs.cmake];
+	strictDeps = true;
 
-  strictDeps = true;
+  nativeBuildInputs = [cmake];
 
   postInstall = ''
-    install -Dm644 ${./expected.pc} $out/lib/pkgconfig/expected.pc
+		mkdir -p $out/lib/pkgconfig
+
+    substitute \
+    	${./expected.pc} \
+    	$out/lib/pkgconfig/expected.pc \
+    	--subst-var out \
+    	--subst-var version
   '';
-}
+ })
