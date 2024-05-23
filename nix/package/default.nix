@@ -1,18 +1,13 @@
 {
-	pkgs,
-	lib,
-	nativeDeps,
-	buildDeps,
-	rootDir,
-	version,
-	...
-}:
-let
-	package = pkgs.callPackage ./package.nix {
-		inherit nativeDeps buildDeps rootDir version;
-	};
-in
-{
-	packages.dev = package.dev;
-	packages.default = package.out;
+  pkgs,
+  rootDir,
+  version,
+  ...
+}: let
+  package = pkgs.callPackage ./package.nix {
+    inherit rootDir version;
+  };
+in {
+  packages.dev = package.dev;
+  packages.default = package.out;
 }
