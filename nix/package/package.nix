@@ -1,11 +1,11 @@
 {
   rootDir,
   version,
+
   stdenv,
   meson,
   ninja,
   pkg-config,
-  ctre,
   catch2_3,
   tl-optional,
   tl-expected,
@@ -29,7 +29,6 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
-    ctre
     catch2_3
     fmt
     tl-optional

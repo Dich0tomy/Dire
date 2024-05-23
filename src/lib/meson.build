@@ -3,17 +3,7 @@ cmake = import('cmake')
 build_type_opts = cmake.subproject_options()
 build_type_opts.add_cmake_defines( { 'CMAKE_BUILD_TYPE': get_option('buildtype').to_upper() } )
 
-ctre = dependency('ctre', version: '3.8.1', required: false)
-if not ctre.found()
-	ctre_sub = cmake.subproject('ctre', options: build_type_opts, required: true)
-	message('ctre targets:\n - ' + '\n - '.join(ctre_sub.target_list()))
-
-	ctre = ctre_sub.dependency('ctre')
-endif
-
-local_deps = [
-	ctre,
-]
+local_deps = [ ]
 
 if(get_option('use_tl_libs'))
 	add_project_arguments('-DDIRE_USE_TL_LIBS', language: 'cpp')
