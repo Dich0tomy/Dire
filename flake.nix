@@ -55,12 +55,16 @@
           pkgs.pkg-config
         ];
 
-        package = import ./nix/package/package.nix {inherit pkgs buildDeps nativeDeps rootDir lib version;};
       in {
         formatter = pkgs.alejandra;
 
-        packages.dev = package.dev;
-				packages.default = package.out;
+        _module.args = {
+					inherit rootDir version nativeDeps buildDeps;
+        };
+
+        imports = [
+        	./nix/package
+        ];
 
         devShells = import ./nix/shell.nix {
           inherit pkgs buildDeps nativeDeps preCommitCheck;
