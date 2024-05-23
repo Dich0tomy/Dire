@@ -50,15 +50,8 @@ stdenv.mkDerivation {
     "-Dstrip=true"
   ];
 
-  buildPhase = ''
-    meson compile dire
-  '';
-
-  installPhase = ''
-    mkdir -p {$dev,$out}/lib $dev/lib/pkgconfig $dev/include
-
-    cp src/lib/libdire.a $out/lib
-    cp src/lib/libdire.a $dev/lib
+  postInstall = ''
+    mkdir -p $dev/lib/pkgconfig $dev/include
 
     cp -r $src/src/lib/include/* $dev/include
 
