@@ -3,8 +3,6 @@
 #include <utility>
 #include <string>
 
-#include <ctre.hpp>
-
 #include <dire/detail/system_dirs/xdg_user_dirs.hpp>
 #include <dire/defines.hpp>
 

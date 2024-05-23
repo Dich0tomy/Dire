@@ -11,7 +11,6 @@
   meson,
   ninja,
   pkg-config,
-  ctre,
   catch2_3,
   fmt,
   tl-optional,
@@ -39,7 +38,6 @@
         ninja
         pkg-config
 
-        ctre
         catch2_3
         fmt
         tl-optional

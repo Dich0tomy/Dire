@@ -43,10 +43,3 @@ FetchContent_Declare(
 	GIT_TAG 10.1.0
 )
 FetchContent_MakeAvailable( fmt )
-
-FetchContent_Declare(
-	ctre
-	GIT_REPOSITORY https://github.com/hanickadot/compile-time-regular-expressions
-	GIT_TAG v3.8.1
-)
-FetchContent_MakeAvailable( ctre )
