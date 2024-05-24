@@ -1,5 +1,5 @@
 {
-  rootDir,
+  self,
   version,
   stdenv,
   meson,
@@ -34,7 +34,7 @@ stdenv.mkDerivation {
     tl-expected
   ];
 
-  src = rootDir;
+  src = "${self}";
 
   mesonBuildType = "release";
 
