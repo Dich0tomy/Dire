@@ -16,12 +16,7 @@
         ./nix/package
       ];
 
-      perSystem = {
-        pkgs,
-        system,
-        lib,
-        ...
-      }: {
+      perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
 
         imports = [./nix/shell];
