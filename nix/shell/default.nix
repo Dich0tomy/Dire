@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  shells = pkgs.callPackage ./shells.nix {};
+  shells = pkgs.callPackages ./shells.nix {};
 in {
   devShells = {
     inherit (shells) ciGcc ciClang devGcc devClang;
