@@ -1,7 +1,6 @@
 {
   rootDir,
   version,
-
   stdenv,
   meson,
   ninja,
