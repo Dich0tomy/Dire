@@ -1,5 +1,4 @@
 {
-  preCommitCheck,
   mkShell,
   gcc11Stdenv,
   llvmPackages_16,
@@ -49,8 +48,6 @@
   baseDevShellAttrs =
     baseShellAttrs
     // {
-      inherit (preCommitCheck) shellHook;
-
       packages = baseShellAttrs.packages ++ devPackages;
     };
 
