@@ -1,8 +1,4 @@
-{
-  inputs,
-  system,
-  ...
-}: {
+{inputs, ...}: {
   perSystem = {system, ...}: {
     _module.args = {
       pkgs = import inputs.nixpkgs {

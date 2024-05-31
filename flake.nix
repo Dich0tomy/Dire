@@ -11,26 +11,20 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import inputs.systems;
 
-      imports = [./nix/dependencies];
+      imports = [
+        ./nix/dependencies
+        ./nix/package
+      ];
 
       perSystem = {
         pkgs,
         system,
         lib,
         ...
-      }: let
-        rootDir = ./.;
-
-        version = lib.strings.fileContents ./VERSION;
-      in {
+      }: {
         formatter = pkgs.alejandra;
 
-        _module.args = {inherit rootDir version;};
-
-        imports = [
-          ./nix/package
-          ./nix/shell
-        ];
+        imports = [./nix/shell];
       };
     };
 }
