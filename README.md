@@ -8,8 +8,7 @@
 > This started as a simple port of [`dirs-dev/directories-rs`](https://github.com/dirs-dev/directories-rs),
 > but deviated in the process, the exact details [can be found here](./docs/differences.md).
 
-A complete cross-platform solution for user and data directories discovery
-with OOTB project support. 
+A complete cross-platform solution for user and data directories discovery with OOTB project support. 
 
 TODO:
 - [x] Add tests for everything (the tests are probably not perfect but good enough for now)
