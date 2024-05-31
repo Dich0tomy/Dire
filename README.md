@@ -26,8 +26,6 @@ TODO:
 - [x] Merge PR and go public
 - [x] Change codeowners
 - [x] Documentation generation
-- [ ] Add conan and vcpkg packaging methods
-- [ ] Add dire executable
 - [ ] Write docs with diataxis fr
 - [ ] Releases on GitHub
 - [ ] Refactor so far #3
@@ -35,6 +33,8 @@ TODO:
 - [ ] Refactor so far #4
 
 Plans:
+- [ ] Add conan and vcpkg packaging methods **\***
+
 - [ ] Package returned dirs in special objects with the following methods **\***:
 	- [ ] `writable() -> bool` - cross platform checking if the dir is writable into (we mean every notion of writable - delete, update, create new file, etc.)
 	- [ ] `readable() -> bool` - cross platform checking if the dir is readble (same here)
