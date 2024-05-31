@@ -10,6 +10,9 @@
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import inputs.systems;
+
+      imports = [./nix/dependencies];
+
       perSystem = {
         pkgs,
         system,
@@ -22,18 +25,7 @@
       in {
         formatter = pkgs.alejandra;
 
-        _module.args = {
-          inherit rootDir version;
-
-          pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = [
-              (f: p: {
-                inherit (pkgs.callPackage ./nix/dependencies {}) tl-optional tl-expected;
-              })
-            ];
-          };
-        };
+        _module.args = {inherit rootDir version;};
 
         imports = [
           ./nix/package
