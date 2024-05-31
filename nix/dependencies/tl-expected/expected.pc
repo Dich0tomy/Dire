@@ -3,5 +3,5 @@ includedir=${prefix}/include
 
 Name: expected
 Description: TartanLlama's expected
-Version: 1.1.0
+Version: @version@
 Cflags: -I${includedir}/
