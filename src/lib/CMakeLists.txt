@@ -44,8 +44,6 @@ if(WIN32)
 	target_compile_definitions(dire-common INTERFACE WIN32_LEAN_AND_MEAN NOMINMAX)
 endif()
 
-target_link_libraries(dire-common INTERFACE ctre)
-
 if (DIRE_USE_TL_LIBS)
 	target_compile_definitions(dire-common INTERFACE DIRE_USE_TL_LIBS) 
 	target_link_libraries(dire-common INTERFACE tl::optional tl::expected)
