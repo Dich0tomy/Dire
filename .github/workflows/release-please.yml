@@ -20,7 +20,6 @@ jobs:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
           version-file: VERSION
-          release-as: 0.1.0
       - uses: actions/checkout@v4
       - name: Tag major nad minor versions
         if: ${{ steps.release.outputs.release_created }}
