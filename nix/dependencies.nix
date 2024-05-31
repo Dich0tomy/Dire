@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs}: let
   tl-optional = pkgs.stdenv.mkDerivation rec {
     pname = "optional";
     version = "1.1.0";
