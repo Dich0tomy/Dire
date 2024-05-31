@@ -5,8 +5,8 @@
 > with proper docs and build options.
 
 > [!NOTE]
-> This started as a simple port of [dirs-dev/directories-rs](https://github.com/dirs-dev/directories-rs),
-> but deviated in the process, the exact details [can be found here](PUT A LINK HERE LOL).
+> This started as a simple port of [`dirs-dev/directories-rs`](https://github.com/dirs-dev/directories-rs),
+> but deviated in the process, the exact details [can be found here](./docs/differences.md).
 
 A complete cross-platform solution for user and data directories discovery
 with OOTB project support. 
@@ -25,11 +25,14 @@ TODO:
 	- [x] Mac - Nix with { CMake, Meson } x { Gcc, Clang }
 	- [x] Windows - { CMake, Meson } x MSVC
 - [x] Merge PR and go public
+- [ ] Change codeowners
+- [ ] Add a log() directory
 - [ ] Documentation generation
-- [ ] Releases on GitHub
 - [ ] Add dire executable
+- [ ] Add conan and vcpkg packaging methods
+- [ ] Releases on GitHub
 - [ ] Refactor so far #3
-- [ ] Better readme
+- [ ] Better readme (diataxis docs)
 - [ ] Refactor so far #4
 
 Plans:
