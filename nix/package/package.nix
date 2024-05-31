@@ -1,7 +1,6 @@
 {
   self,
   version,
-
   stdenv,
   meson,
   ninja,

@@ -1,11 +1,11 @@
 {
   stdenv,
   cmake,
-  fetchFromGitHub
+  fetchFromGitHub,
 }:
 stdenv.mkDerivation (self: {
   pname = "optional";
-	version = "1.1.0";
+  version = "1.1.0";
 
   src = fetchFromGitHub {
     owner = "TartanLlama";
@@ -19,12 +19,12 @@ stdenv.mkDerivation (self: {
   nativeBuildInputs = [cmake];
 
   postInstall = ''
-		mkdir -p $out/lib/pkgconfig
+    mkdir -p $out/lib/pkgconfig
 
-		substitute \
-			${./optional.pc} \
-			$out/lib/pkgconfig/optional.pc \
-			--subst-var out \
-			--subst-var version
+    substitute \
+    	${./optional.pc} \
+    	$out/lib/pkgconfig/optional.pc \
+    	--subst-var out \
+    	--subst-var version
   '';
 })
