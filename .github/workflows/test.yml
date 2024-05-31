@@ -81,7 +81,7 @@ jobs:
             -c sh \
             -c "cmake -S . -B build -DDIRE_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE='Debug' && cmake --build build --parallel 16 && ./build/src/test/dire_test"
 
-  darwin:
+  darwin: # TODO: Turns out I made a fucky wucky and didn't write actual CI for this lmao
     name: ${{ matrix.build.runner }}
     timeout-minutes: 10
     strategy:
