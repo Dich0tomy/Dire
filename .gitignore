@@ -27,3 +27,4 @@
 !docs/
 !nix/
 !src/
+!ci/
