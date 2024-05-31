@@ -17,10 +17,8 @@
       systems = import inputs.systems;
       perSystem = {
         pkgs,
-        inputs',
         system,
         lib,
-        self',
         ...
       }: let
         rootDir = ./.;
@@ -40,31 +38,25 @@
             clang-tidy.enable = true;
           };
         };
-
-        buildDeps =
-          [
-            pkgs.ctre
-            pkgs.catch2_3
-            pkgs.fmt
-          ]
-          ++ import ./nix/dependencies.nix {inherit pkgs;};
-
-        nativeDeps = [
-          pkgs.meson
-          pkgs.ninja
-          pkgs.pkg-config
-        ];
-
       in {
         formatter = pkgs.alejandra;
 
         _module.args = {
-					inherit rootDir version nativeDeps buildDeps preCommitCheck;
+          inherit rootDir version preCommitCheck;
+
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [
+              (f: p: {
+                inherit (pkgs.callPackage ./nix/dependencies {}) tl-optional tl-expected;
+              })
+            ];
+          };
         };
 
         imports = [
-        	./nix/package
-        	./nix/shell
+          ./nix/package
+          ./nix/shell
         ];
       };
     };
