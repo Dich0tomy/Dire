@@ -1,45 +1,63 @@
 {
-  pkgs,
-  lib,
-  nativeDeps,
-  buildDeps,
-  rootDir,
-	version,
-}: let
-	dire-pkgconfig = pkgs.substituteAll { src = ./dire.pc; inherit version; };
-	in pkgs.stdenv.mkDerivation {
-	pname = "dire";
-	inherit version;
+  self,
+  version,
+  stdenv,
+  meson,
+  ninja,
+  pkg-config,
+  catch2_3,
+  tl-optional,
+  tl-expected,
+  fmt,
+}:
+stdenv.mkDerivation {
+  pname = "dire";
+  inherit version;
 
-	outputs = ["out" "dev"];
+  outputs = ["out" "dev"];
 
-	strictDeps = true;
-	enableParallelBuilding = true;
+  strictDeps = true;
+  enableParallelBuilding = true;
 
-	dontUseCmakeConfigure = true;
+  dontUseCmakeConfigure = true;
 
-	nativeBuildInputs = nativeDeps;
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
 
-	buildInputs = buildDeps;
+  buildInputs = [
+    catch2_3
+    fmt
+    tl-optional
+    tl-expected
+  ];
 
-	src = rootDir;
+  src = "${self}";
 
-	mesonBuildType = "release";
+  mesonBuildType = "release";
 
-	mesonFlagsArray = [(lib.mesonBool "strip" true)];
+  # We use mesonFlags, because mesonFlagsArray & the Nix ecosystem
+  # don't have the capabilities to properly handle these flags
+  # e.g. appending \ to the one-before-last argument making the command fail
+  # or simply not supporting the `-DX=Y` option style
+  mesonFlags = [
+    "--optimization=3"
+    "-Db_lto_threads=8"
+    "-Db_lto=true"
+    "-Dstrip=true"
+  ];
 
-	buildPhase = ''
-		meson compile dire:static_library
-	'';
+  postInstall = ''
+    mkdir -p $dev/lib/pkgconfig $dev/include
 
-	installPhase = ''
-		mkdir -p {$dev,$out}/lib $dev/lib/pkgconfig $dev/include
+    cp -r $src/src/lib/include/* $dev/include
 
-		cp src/lib/libdire.a $out/lib
-		cp src/lib/libdire.a $dev/lib
-
-		cp -r $src/src/lib/include/* $dev/include
-
-		substituteAll ${dire-pkgconfig} $dev/lib/pkgconfig/dire.pc
-	'';
+    substitute \
+    	${./dire.pc} \
+    	$dev/lib/pkgconfig/dire.pc \
+    	--subst-var out \
+    	--subst-var version
+  '';
 }
