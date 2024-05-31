@@ -9,7 +9,7 @@ run:
 	./{{ debug_build_dir }}/src/test/dire_test
 
 build-and-test-linux: setup && run
-	meson configure --buildtype debug --debug -Db_lundef=false -Db_sanitize=address,undefined --warnlevel 3 {{ debug_build_dir }}
+	meson configure --buildtype debug --debug -Dbuild_tests=true -Db_lundef=false -Db_sanitize=address,undefined --warnlevel 3 {{ debug_build_dir }}
 
 build-and-test-windows: setup && run
-	meson configure --buildtype debug --debug -Dbackend=vs2022 -Db_sanitize=address,undefined --warnlevel 3 {{ debug_build_dir }}
+	meson configure --buildtype debug --debug -Dbuild_tests=true -Dbackend=vs2022 -Db_sanitize=address,undefined --warnlevel 3 {{ debug_build_dir }}

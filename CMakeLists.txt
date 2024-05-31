@@ -26,6 +26,7 @@ option(CMAKE_COLOR_DIAGNOSTICS "Color diagnostics" ON)
 
 # Set it as a default
 option(DIRE_USE_TL_LIBS "Use TartanLLama's optional and expected" ON)
+option(DIRE_BUILD_TESTS "Build tests" OFF)
 
 option(CMAKE_BUILD_TYPE "Default buildtype" "Debug")
 

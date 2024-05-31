@@ -69,7 +69,7 @@ jobs:
             --extra-experimental-features nix-command \
             --extra-experimental-features flakes \
             -c sh \
-            -c "cmake -S . -B build -D CMAKE_BUILD_TYPE='Debug' && cmake --build build --parallel 16 && ./build/src/test/dire_test"
+            -c "cmake -S . -B build -DDIRE_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE='Debug' && cmake --build build --parallel 16 && ./build/src/test/dire_test"
       - if: ${{ matrix.build.buildsystem == 'cmake' && matrix.build.cc == 'gcc' }}
         name: ${{ matrix.build.buildsystem }} ${{ matrix.build.cc }} 
         run: |
@@ -78,7 +78,7 @@ jobs:
             --extra-experimental-features nix-command \
             --extra-experimental-features flakes \
             -c sh \
-            -c "cmake -S . -B build -D CMAKE_BUILD_TYPE='Debug' && cmake --build build --parallel 16 && ./build/src/test/dire_test"
+            -c "cmake -S . -B build -DDIRE_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE='Debug' && cmake --build build --parallel 16 && ./build/src/test/dire_test"
 
   darwin:
     name: ${{ matrix.build.runner }}
@@ -124,7 +124,7 @@ jobs:
         run: |
           $PSNativeCommandArgumentPassing = 'Legacy'
 
-          cmake -S . -B build -D CMAKE_BUILD_TYPE='Debug'
+          cmake -S . -B build -DDIRE_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE='Debug'
           cmake --build build --parallel 16
           .\build\src\test\Debug\dire_test
 
