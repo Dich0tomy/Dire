@@ -6,6 +6,7 @@
 !.gitmodules
 !LICENSE
 !README.md
+!VERSION
 
 !flake.nix
 !flake.lock
