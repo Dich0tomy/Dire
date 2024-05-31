@@ -46,6 +46,9 @@
           ++ pkgs.callPackage ./nix/dependencies.nix {inherit pkgs;};
 
         nativeDeps = [
+          pkgs.doxygen
+          pkgs.graphviz
+
           pkgs.meson
           pkgs.cmake
           pkgs.ninja

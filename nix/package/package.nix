@@ -5,7 +5,6 @@
   buildDeps,
   rootDir,
 }: let
-
   direBase = pkgs.stdenv.mkDerivation {
     pname = "dire";
     version = "0.1.0";

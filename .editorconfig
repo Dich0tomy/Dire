@@ -9,3 +9,6 @@ charset = utf-8
 [*.{nix,yaml,yml}]
 indent_style = spaces
 indent_width = 2
+
+[Doxyfile]
+indent_style = spaces
