@@ -5,10 +5,19 @@
   pre-commit-check,
   ...
 }: let
+	basePackages = [
+		pkgs.meson
+		pkgs.ninja
+		pkgs.just 
+
+		pkgs.doxygen
+		pkgs.graphviz
+	];
+
   baseShellAttrs = {
     hardeningDisable = ["all"];
 
-    packages = nativeDeps ++ [pkgs.just];
+    packages = nativeDeps ++ basePackages;
 
     buildInputs = buildDeps;
   };
@@ -23,7 +32,7 @@
 
   devPackages = [
     pkgs.act
-  ];
+  ] ++ basePackages;
 
   baseDevShellAttrs =
     baseShellAttrs

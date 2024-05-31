@@ -57,13 +57,14 @@
 
         rootDir = ./.;
 
-				version = (builtins.readFile ./VERSION);
+        version = builtins.readFile ./VERSION;
 
         package = import ./nix/package/package.nix {inherit pkgs buildDeps nativeDeps rootDir lib version;};
       in {
         formatter = pkgs.alejandra;
 
-        packages.default = package.direRelease;
+        packages.default = package;
+				packages.dev = package.dev;
 
         devShells = import ./nix/shell.nix {
           inherit pkgs buildDeps nativeDeps pre-commit-check;
