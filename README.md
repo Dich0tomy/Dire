@@ -24,8 +24,7 @@ TODO:
 	- [x] Linux - Nix with { CMake, Meson } x { Gcc, Clang }
 	- [x] Mac - Nix with { CMake, Meson } x { Gcc, Clang }
 	- [x] Windows - { CMake, Meson } x MSVC
-	- [ ] Linters?
-- [ ] Merge PR and go public
+- [x] Merge PR and go public
 - [ ] Documentation generation
 - [ ] Releases on GitHub
 - [ ] Add dire executable
