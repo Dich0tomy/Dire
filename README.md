@@ -26,9 +26,9 @@ TODO:
 - [x] Merge PR and go public
 - [x] Change codeowners
 - [x] Documentation generation
-- [ ] Write docs with diataxis fr
-- [ ] Add dire executable
 - [ ] Add conan and vcpkg packaging methods
+- [ ] Add dire executable
+- [ ] Write docs with diataxis fr
 - [ ] Releases on GitHub
 - [ ] Refactor so far #3
 - [ ] Better readme (diataxis docs)
