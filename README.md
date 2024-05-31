@@ -34,7 +34,6 @@ TODO:
 - [ ] Refactor so far #4
 
 Plans:
-
 - [ ] Package returned dirs in special objects with the following methods **\***:
 	- [ ] `writable() -> bool` - cross platform checking if the dir is writable into (we mean every notion of writable - delete, update, create new file, etc.)
 	- [ ] `readable() -> bool` - cross platform checking if the dir is readble (same here)
