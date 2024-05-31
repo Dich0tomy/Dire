@@ -25,9 +25,8 @@ TODO:
 	- [x] Mac - Nix with { CMake, Meson } x { Gcc, Clang }
 	- [x] Windows - { CMake, Meson } x MSVC
 - [x] Merge PR and go public
-- [ ] Change codeowners
-- [ ] Add a log() directory
-- [ ] Documentation generation
+- [x] Change codeowners
+- [x] Documentation generation
 - [ ] Add dire executable
 - [ ] Add conan and vcpkg packaging methods
 - [ ] Releases on GitHub
