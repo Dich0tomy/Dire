@@ -26,6 +26,7 @@ TODO:
 - [x] Merge PR and go public
 - [x] Change codeowners
 - [x] Documentation generation
+- [ ] Write docs with diataxis fr
 - [ ] Add dire executable
 - [ ] Add conan and vcpkg packaging methods
 - [ ] Releases on GitHub
