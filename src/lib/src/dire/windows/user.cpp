@@ -16,15 +16,16 @@ auto bundle() -> Optional<UserDirsBundle>
 	return { {
 		.home_dir = *home,
 
-		.font_dir = {},
 		.audio_dir = *audio_dir(),
 		.desktop_dir = *desktop_dir(),
 		.document_dir = *document_dir(),
 		.download_dir = *download_dir(),
 		.picture_dir = *picture_dir(),
-		.public_dir = *public_dir(),
-		.template_dir = *template_dir(),
 		.video_dir = *video_dir(),
+		.public_dir = *public_dir(),
+
+		.font_dir = {},
+		.template_dir = *template_dir(),
 	} };
 }
 
