@@ -3,6 +3,7 @@
 
 !.github
 !.gitignore
+!.gitmodules
 !LICENSE
 !README.md
 
