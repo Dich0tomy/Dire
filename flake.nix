@@ -1,15 +1,10 @@
 {
   description = "Complete cross-platform solution for data and user directories discovery.";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    systems.url = "github:nix-systems/default";
-  };
-
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = import inputs.systems;
+      systems = ["aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux"];
+
 
       imports = [
         ./nix/dependencies
@@ -22,4 +17,9 @@
         imports = [./nix/shell];
       };
     };
+
+	inputs = {
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		flake-parts.url = "github:hercules-ci/flake-parts";
+	};
 }
