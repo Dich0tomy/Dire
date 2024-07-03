@@ -1,6 +1,4 @@
 {
-  self,
-  version,
   stdenv,
   meson,
   ninja,
@@ -9,7 +7,12 @@
   tl-optional,
   tl-expected,
   fmt,
+  lib,
 }:
+let
+	self = ../../.;
+	version = lib.strings.fileContents "${self}/VERSION";
+in
 stdenv.mkDerivation {
   pname = "dire";
   inherit version;
@@ -34,7 +37,15 @@ stdenv.mkDerivation {
     tl-expected
   ];
 
-  src = "${self}";
+	src = lib.fileset.toSource {
+		root = self;
+		fileset = lib.fileset.unions [
+			(self + /src)
+			(self + /VERSION)
+			(self + /meson.build)
+			(self + /meson_options.txt)
+		];
+	};
 
   mesonBuildType = "release";
 
