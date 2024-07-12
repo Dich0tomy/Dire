@@ -7,6 +7,10 @@ namespace dire::user
 
 /**
  * A bundle of all user directories.  
+ *
+ * User directories are directories mostly used by the user
+ * and user programs.
+ *
  * `template_dir` doesn't exist on linux systems.  
  * `font_dir` doesn't exists on windows.
  */
