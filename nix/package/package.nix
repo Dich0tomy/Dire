@@ -8,67 +8,66 @@
   tl-expected,
   fmt,
   lib,
-}:
-let
-	self = ../../.;
-	version = lib.strings.fileContents "${self}/VERSION";
+}: let
+  self = ../../.;
+  version = lib.strings.fileContents "${self}/VERSION";
 in
-stdenv.mkDerivation {
-  pname = "dire";
-  inherit version;
+  stdenv.mkDerivation {
+    pname = "dire";
+    inherit version;
 
-  outputs = ["out" "dev"];
+    outputs = ["out" "dev"];
 
-  strictDeps = true;
-  enableParallelBuilding = true;
+    strictDeps = true;
+    enableParallelBuilding = true;
 
-  dontUseCmakeConfigure = true;
+    dontUseCmakeConfigure = true;
 
-  nativeBuildInputs = [
-    meson
-    ninja
-    pkg-config
-  ];
+    nativeBuildInputs = [
+      meson
+      ninja
+      pkg-config
+    ];
 
-  buildInputs = [
-    catch2_3
-    fmt
-    tl-optional
-    tl-expected
-  ];
+    buildInputs = [
+      catch2_3
+      fmt
+      tl-optional
+      tl-expected
+    ];
 
-	src = lib.fileset.toSource {
-		root = self;
-		fileset = lib.fileset.unions [
-			(self + /src)
-			(self + /VERSION)
-			(self + /meson.build)
-			(self + /meson_options.txt)
-		];
-	};
+    src = lib.fileset.toSource {
+      root = self;
+      fileset = lib.fileset.unions [
+        (self + /src)
+        (self + /VERSION)
+        (self + /meson.build)
+        (self + /meson_options.txt)
+      ];
+    };
 
-  mesonBuildType = "release";
+    mesonBuildType = "release";
 
-  # We use mesonFlags, because mesonFlagsArray & the Nix ecosystem
-  # don't have the capabilities to properly handle these flags
-  # e.g. appending \ to the one-before-last argument making the command fail
-  # or simply not supporting the `-DX=Y` option style
-  mesonFlags = [
-    "--optimization=3"
-    "-Db_lto_threads=8"
-    "-Db_lto=true"
-    "-Dstrip=true"
-  ];
+    # We use mesonFlags, because mesonFlagsArray & the Nix ecosystem
+    # don't have the capabilities to properly handle these flags
+    # e.g. appending \ to the one-before-last argument making the command fail
+    # or simply not supporting the `-DX=Y` option style
+    mesonFlags = [
+      "--optimization=3"
+      "-Db_lto_threads=8"
+      "-Db_lto=true"
+      "-Dstrip=true"
+    ];
 
-  postInstall = ''
-    mkdir -p $dev/lib/pkgconfig $dev/include
+    postInstall = ''
+      mkdir -p $dev/lib/pkgconfig $dev/include
 
-    cp -r $src/src/lib/include/* $dev/include
+      cp -r $src/src/lib/include/* $dev/include
 
-    substitute \
-    	${./dire.pc} \
-    	$dev/lib/pkgconfig/dire.pc \
-    	--subst-var out \
-    	--subst-var version
-  '';
-}
+      substitute \
+      	${./dire.pc} \
+      	$dev/lib/pkgconfig/dire.pc \
+      	--subst-var out \
+      	--subst-var version
+    '';
+  }
