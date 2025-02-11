@@ -46,10 +46,9 @@ auto name(std::string domain, [[maybe_unused]] std::string org, std::string app_
 		org.length() > 0 && "org is required to be set. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
 	);
 	assert(
-		domain.length() > 1 && "domain is required to be set. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
+		domain.length() > 1 && "domain is required to be set and bigger in length than 1. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
 	);
 
-	// hmm
 	return PlatformProjectName(
 		Path(detail::trim(std::move(domain))) / Path(detail::trim(std::move(app_name)))
 	);
