@@ -14,13 +14,13 @@ namespace dire::project
 auto name(std::string domain, std::string org, std::string app_name) -> PlatformProjectName
 {
 	assert(
-		app_name.length() > 0 && "app_name is required to be set|update. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
+		app_name.length() > 0 && "app_name is required to be set. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
 	);
 	assert(
-		org.length() > 0 && "org is required to be set|update. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
+		org.length() > 0 && "org is required to be set. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
 	);
 	assert(
-		domain.length() > 1 && "domain is required to be set|update. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
+		domain.length() > 1 && "domain is required to be set and bigger in length than 1. For your own non-cross-platform name, use IReallyWantMyOwnPlatformProjectName"
 	);
 
 	domain = detail::trim(std::move(domain));
