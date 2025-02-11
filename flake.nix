@@ -9,15 +9,15 @@
         formatter = pkgs.alejandra;
 
         imports = [
-					./nix/dependencies
-					./nix/package
-        	./nix/shell
+          ./nix/dependencies
+          ./nix/package
+          ./nix/shell
         ];
       };
     };
 
-	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-		flake-parts.url = "github:hercules-ci/flake-parts";
-	};
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+  };
 }
