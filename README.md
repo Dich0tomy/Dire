@@ -1,38 +1,68 @@
 # Dire
 
-> [!WARNING]
-> Still **WIP**. Wait a few days before this gets properly released
-> with proper docs and build options.
-
 > [!NOTE]
 > This started as a simple port of [`dirs-dev/directories-rs`](https://github.com/dirs-dev/directories-rs),
 > but deviated in the process, the exact details [can be found here](./docs/differences.md).
 
-A complete cross-platform solution for user and data directories discovery with OOTB project support. 
+A complete cross-platform solution for user and data directories discovery with OOTB project support.
 
-TODO:
-- [x] Add tests for everything (the tests are probably not perfect but good enough for now)
-- [x] Add bundle functions (a function returning a struct with all the paths)
-- [x] Refactor so far #1
-- [x] Package with Nix \[ "lib" "dev" "bin " ]
-- [x] Add proper meson building (with subprojects)
-- [x] Add proper CMake building (with FetchContent)
-- [x] Add proper license :)))
-- [x] Remove CTRE fir xdg parsing
-- [x] CI
-	- [x] Linux - Nix with { CMake, Meson } x { Gcc, Clang }
-	- [x] Mac - Nix with { CMake, Meson } x { Gcc, Clang }
-	- [x] Windows - { CMake, Meson } x MSVC
-- [x] Merge PR and go public
-- [x] Change codeowners
-- [x] Documentation generation
-- [ ] Write docs with diataxis fr
-- [ ] Releases on GitHub
-- [ ] Refactor so far #3
-- [ ] Better readme (diataxis docs)
-- [ ] Refactor so far #4
+|                                         |  **`Dire`** | [`dirs-dev/directories-rs`](https://github.com/dirs-dev/directories-rs) | [`sago007/PlatformFolders`](https://github.com/sago007/PlatformFolders)  |
+|:---------------------------------------:|:-----------:|:-----------------------------------------------------------------------:|:------------------------------------------------------------------------:|
+| C++                                     |      ✅     |                                 ❌ (Rust)                               |                                    ✅                                    |
+| Support for Windows, Linux and Darwin   |      ✅     |                                    ✅                                   |                                    ✅                                    |
+| Support for Base, User and Project dirs |      ✅     |                                    ✅                                   |                                    ❌                                    |
+| Structure bundles API                   |      ✅     |                                    ❌                                   |                                    ✅                                    |
+| Standalone functions API                |      ✅     |                                    ❌                                   |                                    ❌                                    |
 
-Plans:
+An abstract example:
+```cpp
+static constexpr auto project_domain = "me";
+static constexpr auto project_org = "dich0tomy";
+static constexpr auto project_app_name = "dire";
+
+auto const project_name = dire::project::name(project_domain, project_org, project_app_name);
+
+auto home_dir = dire::base::home_dir();
+if(not home_dir) {
+	// Note that `dire::project::bundle` would also fail if this failed
+	log::critical("Couldn't determine home directory!");
+	return -1;
+}
+
+if(auto project_dirs = dire::project::bundle(project_name)) {
+	auto config = Config::from_dir(projects_dirs->config_dir);
+
+	App::from_conf(*home_dir, config).start();
+} else {
+	bail("Couldn't determine basic project dirs.");
+}
+```
+
+[Tests](./src/test) should be simple, readable and comprehensive enough to show all possible usage examples as well.
+
+## Documentation ([diataxis](https://diataxis.fr)\*)
+
+- [How-To's](./docs/how-tos) - guides on how to do common things
+- [Reference](https://dich0tomy.github.io/Dire/) - technical reference (namespaces, functions, etc.)
+- [Explanations](./docs/explanations) - explanations of some design choices and **proper usage**
+
+\* It's not a complete diataxis because the scope of this project is simply too small to include reasonable
+information in all four sections.
+
+## How it started
+
+This project started because I wanted a nice cross-platform way of discovering typical data directories.
+
+The only feasible alternative I found was [`sago007/PlatformFolders`](https://github.com/sago007/PlatformFolders),
+but it doesn't necessarily expose the API I'd like to use.
+
+There's an awesome Rust crate [`dirs-dev/directories-rs`](https://github.com/dirs-dev/directories-rs) which very much
+would fit my needs, but it's.. Rust, not C++ - so I wrote this.
+
+## Plans
+
+**\*** Only if there will be need to, e.g. someone asks for that or it will be a feasible fix for an issue.
+
 - [ ] Add conan and vcpkg packaging methods **\***
 
 - [ ] Package returned dirs in special objects with the following methods **\***:
@@ -54,11 +84,5 @@ Plans:
 	- The user would not pay for the modules they don't want (possible faster builds, smaller binary size, etc., shouldn't be much of an issue tho, the library is extremely small)
 	- Would introduce duplication in certain modules but I guess we're fine with that, the lib is tiny
 
-- [ ] Rewrite the library to be C++17 or even C++11 compatible **\***:
-	- That would require throwing out CTRE and rolling our own simple XDG record parser
+## License
 
-- [ ] Allow for WebAsm targets **\***:
-
-- [ ] Split the underlying xdg dirs and known folders api into a separate lib **\***:
-
-**\*** Only if there will be need to, e.g. someone asks for that or it will be a feasible fix for an issue

@@ -309,8 +309,13 @@ struct ProjectDirsBundle
 	*
 	* On linux only `app_name` is used and produces a name that is lowercased and with spaces removed.
 	* On windows only `app_name` and `org` are used and produces a path like `domain / name` without other modifications.
-	* On mac all free are used and produces a name like `domain.org.app_name` with all free segments lowercased and spaces replaced with hyphens.
-	*
+	* On mac all three are used and produce a name like `domain.org.app_name` with all free segments lowercased and spaces replaced with hyphens.
+	* e.g. `dire::project::name("me", "dich0tomy", "dire")` will produce:
+	* | Platform |       Result      |
+	* |:--------:|:-----------------:|
+	* | Linux    | dire              |
+	* | Mac      | me.dich0tomy.dire |
+	* | Windows  | Dichotomy/Dire    |
 */
 auto name(std::string domain, std::string org, std::string app_name) -> PlatformProjectName;
 
