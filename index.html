@@ -96,39 +96,66 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a> </p><blockquote class="doxtable">
-<p>&zwj;[!WARNING] Still <b>WIP</b>. Wait a few days before this gets properly released with proper docs and build options. </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>&zwj;[!NOTE] This started as a simple port of <a href="https://github.com/dirs-dev/directories-rs"><code>dirs-dev/directories-rs</code></a>, but deviated in the process, the exact details <a class="el" href="md_docs_2differences.html">can be found here</a>. </p>
+<p>&zwj;[!NOTE] This started as a simple port of <a href="https://github.com/dirs-dev/directories-rs"><code>dirs-dev/directories-rs</code></a>, but deviated in the process, the exact details can be found here. </p>
 </blockquote>
 <p>A complete cross-platform solution for user and data directories discovery with OOTB project support.</p>
-<p>TODO:</p><ul>
-<li>[x] Add tests for everything (the tests are probably not perfect but good enough for now)</li>
-<li>[x] Add bundle functions (a function returning a struct with all the paths)</li>
-<li>[x] Refactor so far #1</li>
-<li>[x] Package with Nix [ "lib" "dev" "bin " ]</li>
-<li>[x] Add proper meson building (with subprojects)</li>
-<li>[x] Add proper CMake building (with FetchContent)</li>
-<li>[x] Add proper license :)))</li>
-<li>[x] Remove CTRE fir xdg parsing</li>
-<li>[x] CI<ul>
-<li>[x] Linux - Nix with { CMake, Meson } x { Gcc, Clang }</li>
-<li>[x] Mac - Nix with { CMake, Meson } x { Gcc, Clang }</li>
-<li>[x] Windows - { CMake, Meson } x MSVC</li>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter"></th><th class="markdownTableHeadCenter">**<code>Dire</code>**   </th><th class="markdownTableHeadCenter"><a href="https://github.com/dirs-dev/directories-rs"><code>dirs-dev/directories-rs</code></a>   </th><th class="markdownTableHeadCenter"><a href="https://github.com/sago007/PlatformFolders"><code>sago007/PlatformFolders</code></a>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">C++   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyCenter">❌ (Rust)   </td><td class="markdownTableBodyCenter">✅    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Support for Windows, Linux and Darwin   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyCenter">✅    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Support for Base, User and Project dirs   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyCenter">❌    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Structure bundles API   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✅    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Standalone functions API   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">❌   </td></tr>
+</table>
+<p>An abstract example: </p><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> project_domain = <span class="stringliteral">&quot;me&quot;</span>;</div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> project_org = <span class="stringliteral">&quot;dich0tomy&quot;</span>;</div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> project_app_name = <span class="stringliteral">&quot;dire&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> <span class="keyword">const</span> project_name = <a class="code hl_function" href="namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd">dire::project::name</a>(project_domain, project_org, project_app_name);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> home_dir = <a class="code hl_function" href="namespacedire_1_1base.html#a3e831b039daaad98e093bca9ff3a1a60">dire::base::home_dir</a>();</div>
+<div class="line"><span class="keywordflow">if</span>(not home_dir) {</div>
+<div class="line">    <span class="comment">// Note that `dire::project::bundle` would also fail if this failed</span></div>
+<div class="line">    log::critical(<span class="stringliteral">&quot;Couldn&#39;t determine home directory!&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">return</span> -1;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> project_dirs = <a class="code hl_function" href="namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6">dire::project::bundle</a>(project_name)) {</div>
+<div class="line">    <span class="keyword">auto</span> config = Config::from_dir(projects_dirs-&gt;config_dir);</div>
+<div class="line"> </div>
+<div class="line">    App::from_conf(*home_dir, config).start();</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    bail(<span class="stringliteral">&quot;Couldn&#39;t determine basic project dirs.&quot;</span>);</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespacedire_1_1base_html_a3e831b039daaad98e093bca9ff3a1a60"><div class="ttname"><a href="namespacedire_1_1base.html#a3e831b039daaad98e093bca9ff3a1a60">dire::base::home_dir</a></div><div class="ttdeci">auto home_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="ttc" id="anamespacedire_1_1project_html_a51480aa7c9b1743d59839a84b6cd2af6"><div class="ttname"><a href="namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6">dire::project::bundle</a></div><div class="ttdeci">auto bundle(PlatformProjectName project_name) -&gt; Optional&lt; ProjectDirsBundle &gt;</div></div>
+<div class="ttc" id="anamespacedire_1_1project_html_af55003ea6b2c6c5d59988e9a30547efd"><div class="ttname"><a href="namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd">dire::project::name</a></div><div class="ttdeci">auto name(std::string domain, std::string org, std::string app_name) -&gt; PlatformProjectName</div></div>
+</div><!-- fragment --><p><a href="./src/test">Tests</a> should be simple, readable and comprehensive enough to show all possible usage examples as well.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Documentation (&lt;a href="https://diataxis.fr" &gt;diataxis&lt;/a&gt;*)</h1>
+<ul>
+<li><a href="./docs/how-tos">How-To's</a> - guides on how to do common things</li>
+<li><a href="https://dich0tomy.github.io/Dire/">Reference</a> - technical reference (namespaces, functions, etc.)</li>
+<li><a href="./docs/explanations">Explanations</a> - explanations of some design choices and <b>proper usage</b></li>
+<li>It's not a complete diataxis because the scope of this project is simply too small to include reasonable information in all four sections.</li>
 </ul>
-</li>
-<li>[x] Merge PR and go public</li>
-<li>[x] Change codeowners</li>
-<li>[x] Documentation generation</li>
-<li>[ ] Write docs with diataxis fr</li>
-<li>[ ] Releases on GitHub</li>
-<li>[ ] Refactor so far #3</li>
-<li>[ ] Better readme (diataxis docs)</li>
-<li>[ ] Refactor so far #4</li>
-</ul>
-<p>Plans:</p><ul>
+<h1><a class="anchor" id="autotoc_md11"></a>
+How it started</h1>
+<p>This project started because I wanted a nice cross-platform way of discovering typical data directories.</p>
+<p>The only feasible alternative I found was <a href="https://github.com/sago007/PlatformFolders"><code>sago007/PlatformFolders</code></a>, but it doesn't necessarily expose the API I'd like to use.</p>
+<p>There's an awesome Rust crate <a href="https://github.com/dirs-dev/directories-rs"><code>dirs-dev/directories-rs</code></a> which very much would fit my needs, but it's.. Rust, not C++ - so I wrote this.</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
+Plans</h1>
+<p>***** Only if there will be need to, e.g. someone asks for that or it will be a feasible fix for an issue.</p>
+<ul>
 <li>[ ] Add conan and vcpkg packaging methods *****</li>
-<li><p class="startli">[ ] Package returned dirs in special objects with the following methods *****:</p><ul>
+<li><p class="startli">[ ] Package returned dirs in special objects with the following methods (this is not necessarily trivial as the notion of <code>writable</code> or <code>readable</code> is really dependent)*****:</p><ul>
 <li>[ ] <code>writable() -&gt; bool</code> - cross platform checking if the dir is writable into (we mean every notion of writable - delete, update, create new file, etc.)</li>
 <li>[ ] <code>readable() -&gt; bool</code> - cross platform checking if the dir is readble (same here)</li>
 <li>[ ] <code>writable_and_readable() -&gt; bool</code> - <code>return writable() and readable();</code></li>
@@ -145,14 +172,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>Would introduce duplication in certain modules but I guess we're fine with that, the lib is tiny</li>
 </ul>
 </li>
-<li>[ ] Rewrite the library to be C++17 or even C++11 compatible *****:<ul>
-<li>That would require throwing out CTRE and rolling our own simple XDG record parser</li>
 </ul>
-</li>
-<li>[ ] Allow for WebAsm targets *****:</li>
-<li>[ ] Split the underlying xdg dirs and known folders api into a separate lib *****:</li>
-</ul>
-<p>***** Only if there will be need to, e.g. someone asks for that or it will be a feasible fix for an issue </p>
+<h1><a class="anchor" id="autotoc_md13"></a>
+License</h1>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

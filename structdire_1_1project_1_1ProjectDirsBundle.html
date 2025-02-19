@@ -120,7 +120,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9b990ff06811ff48e2d1d8d89bae5766" id="r_a9b990ff06811ff48e2d1d8d89bae5766"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedire.html#a4e5a27eb337e9b7d217e6ca9e41ec10a">Optional</a>&lt; <a class="el" href="namespacedire.html#af8e12c24069d89075127a6ccd76a651a">Path</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdire_1_1project_1_1ProjectDirsBundle.html#a9b990ff06811ff48e2d1d8d89bae5766">state_dir</a></td></tr>
 <tr class="separator:a9b990ff06811ff48e2d1d8d89bae5766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A bundle of all project directories.</p>
+<p>These directories can be used to store project specific caches, configs, data, etc.</p>
+<p><code>runtime_dir</code> and <code>state_dir</code> don't exist on windows and macOS. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a30737f4337f7d5d31489099aec58fa92" name="a30737f4337f7d5d31489099aec58fa92"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a30737f4337f7d5d31489099aec58fa92">&#9670;&#160;</a></span>cache_dir</h2>
 
@@ -132,6 +136,29 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory for program caches. <br  />
+ Only caches should be stored here (files safe to delete, i.e. download caches), not files that are meant to be persisted.</p>
+<p>For configuration files: <code>config_dir</code>, <code>config_local_dir</code> or <code>preference_dir</code></p><ul>
+<li>Files used to alter the behaviour of the application to the user preferences.</li>
+<li>The user may wish and typically does back up those.</li>
+</ul>
+<p>For state files: <code>state_dir</code> (doesn't exist on windows and macOS! Use <code>bundle.state_dir.value_or(bundle.data_local_dir)</code>)</p><ul>
+<li>State of the app - logs, history and such.</li>
+<li>Typically not portable files unique for the machine the app runs on.</li>
+</ul>
+<p>For data files: <code>data_dir</code>, <code>data_local_dir</code></p><ul>
+<li>Files portable across machines - icons, fonts, desktop entries and such.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_CACHE_HOME</code> or <code>$HOME/.cache</code>   </td><td class="markdownTableBodyCenter">/home/foo/.cache    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code>home_dir()</code> + "/Library/Caches"   </td><td class="markdownTableBodyCenter">/Users/Foo/Library/Caches    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_LocalAppData</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\AppData\Local   </td></tr>
+</table>
 
 </div>
 </div>
@@ -146,6 +173,34 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory for program configuration files. <br  />
+ Only configuration files should be stored here, as users often back up this directory.</p>
+<p>On linux and macOS this is the same as <code>config_local_dir</code>. <br  />
+ On windows this directory can be synchronized in a domain.</p>
+<p>For applications that are meant for power users, developers, etc., prefer this. Otherwise, prefer <code>preference_dir</code>. <br  />
+ This matters on macOS as it stores the configuration files in <code>$HOME/.config</code> instead of <code>$HOME/Library/Preferences</code>.</p>
+<p>For cache files: <code>cache_dir</code></p><ul>
+<li>Intermediate files created for more expensive processes.</li>
+<li>Saved data used to speed up the application by not computing things unnecessarilly.</li>
+<li>Generally cached files that the user will not care for.</li>
+</ul>
+<p>For state files: <code>state_dir</code> (doesn't exist on windows and macOS! Use <code>bundle.state_dir.value_or(bundle.data_local_dir)</code>)</p><ul>
+<li>State of the app - logs, history and such.</li>
+<li>Typically not portable files unique for the machine the app runs on.</li>
+</ul>
+<p>For data files: <code>data_dir</code>, <code>data_local_dir</code></p><ul>
+<li>Files portable across machines - icons, fonts, desktop entries and such.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_CONFIG_HOME</code> or <code>$HOME/.config</code>   </td><td class="markdownTableBodyCenter">/home/foo/.config    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code>home_dir()</code> + "/.config"   </td><td class="markdownTableBodyCenter">/Users/Foo/.config    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_RoamingAppData</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\AppData\Roaming   </td></tr>
+</table>
 
 </div>
 </div>
@@ -160,6 +215,34 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory for program configuration files for the current user only. <br  />
+ Only configuration files should be stored here, as users often back up this directory.</p>
+<p>On linux and macOS this is the same as <code>config_dir</code>. <br  />
+ On windows this directory cannot be synchronized in the domain as opposed to <code>config_dir</code>.</p>
+<p>For applications that are meant for power users, developers, etc., prefer this. Otherwise, prefer <code>preference_dir</code>. <br  />
+ This matters on macOS as it stores the configuration files in <code>$HOME/.config</code> instead of <code>$HOME/Library/Preferences</code>.</p>
+<p>For cache files: <code>cache_dir</code></p><ul>
+<li>Intermediate files created for more expensive processes.</li>
+<li>Saved data used to speed up the application by not computing things unnecessarilly.</li>
+<li>Generally cached files that the user will not care for.</li>
+</ul>
+<p>For state files: <code>state_dir</code> (doesn't exist on windows and macOS! Use <code>bundle.state_dir.value_or(bundle.data_local_dir)</code>)</p><ul>
+<li>State of the app - logs, history and such.</li>
+<li>Typically not portable files unique for the machine the app runs on.</li>
+</ul>
+<p>For data files: <code>data_dir</code>, <code>data_local_dir</code></p><ul>
+<li>Files portable across machines - icons, fonts, desktop entries and such.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_CONFIG_HOME</code> or <code>$HOME/.config</code>   </td><td class="markdownTableBodyCenter">/home/foo/.config    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code>home_dir()</code> + "/.config"   </td><td class="markdownTableBodyCenter">/Users/Foo/.config    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_LocalAppData</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\AppData\Local   </td></tr>
+</table>
 
 </div>
 </div>
@@ -174,6 +257,33 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory for program data files. <br  />
+ Used for files inherently portable across machines like icons, fonts, desktop entries and such.</p>
+<p>On linux and macOS this is the same as <code>data_local_dir</code>. <br  />
+ On windows this directory can be synchronized in a domain.</p>
+<p>For state files: <code>state_dir</code> (doesn't exist on windows and macOS! Use <code>bundle.state_dir.value_or(bundle.data_local_dir)</code>)</p><ul>
+<li>State of the app - logs, history and such.</li>
+<li>Typically not portable files unique for the machine the app runs on.</li>
+</ul>
+<p>For cache files: <code>cache_dir</code></p><ul>
+<li>Intermediate files created for more expensive processes.</li>
+<li>Saved data used to speed up the application by not computing things unnecessarilly.</li>
+<li>Generally cached files that the user will not care for.</li>
+</ul>
+<p>For configuration files: <code>config_dir</code>, <code>config_local_dir</code> or <code>preference_dir</code></p><ul>
+<li>Files used to alter the behaviour of the application to the user preferences.</li>
+<li>The user may wish and typically does back up those.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_DATA_HOME</code> or <code>$HOME/.local/share</code>   </td><td class="markdownTableBodyCenter">/home/foo/.local/share    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code>home_dir()</code> + "/Library/Application Support"   </td><td class="markdownTableBodyCenter">/Users/Foo/Library/Application Support    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_RoamingAppData</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\AppData\Roaming   </td></tr>
+</table>
 
 </div>
 </div>
@@ -188,6 +298,33 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory for program data files for the current user only. <br  />
+ Used for files inherently portable across machines like icons, fonts, desktop entries and such.</p>
+<p>On linux and macOS this is the same as <code>data_dir</code>. <br  />
+ On windows this directory cannot be synchronized in the domain as opposed to <code>data_dir</code>.</p>
+<p>For state files: <code>state_dir</code> (doesn't exist on windows and macOS! Use <code>bundle.state_dir.value_or(bundle.data_local_dir)</code>)</p><ul>
+<li>State of the app - logs, history and such.</li>
+<li>Typically not portable files unique for the machine the app runs on.</li>
+</ul>
+<p>For cache files: <code>cache_dir</code></p><ul>
+<li>Intermediate files created for more expensive processes.</li>
+<li>Saved data used to speed up the application by not computing things unnecessarilly.</li>
+<li>Generally cached files that the user will not care for.</li>
+</ul>
+<p>For configuration files: <code>config_dir</code>, <code>config_local_dir</code> or <code>preference_dir</code></p><ul>
+<li>Files used to alter the behaviour of the application to the user preferences.</li>
+<li>The user may wish and typically does back up those.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_DATA_HOME</code> or <code>$HOME/.local/share</code>   </td><td class="markdownTableBodyCenter">/home/foo/.local/share    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code>home_dir()</code> + "/Library/Application Support"   </td><td class="markdownTableBodyCenter">/Users/Foo/Library/Application Support    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_LocalAppData</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\AppData\Local   </td></tr>
+</table>
 
 </div>
 </div>
@@ -202,6 +339,33 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory for program configuration files. <br  />
+ Only configuration files should be stored here, as users often back up this directory.</p>
+<p>For applications that are meant for ordinary users prefer this. <br  />
+ For applications meant for developers and power users prefer <code>config_dir</code> or <code>config_local_dir</code>. <br  />
+ This matters on macOS as it stores the configuration files in <code>$HOME/Library/Preferences</code> instead of <code>$HOME/.config</code>.</p>
+<p>For cache files: <code>cache_dir</code></p><ul>
+<li>Intermediate files created for more expensive processes.</li>
+<li>Saved data used to speed up the application by not computing things unnecessarilly.</li>
+<li>Generally cached files that the user will not care for.</li>
+</ul>
+<p>For state files: <code>state_dir</code> (doesn't exist on windows and macOS! Use <code>bundle.state_dir.value_or(bundle.data_local_dir)</code>)</p><ul>
+<li>State of the app - logs, history and such.</li>
+<li>Typically not portable files unique for the machine the app runs on.</li>
+</ul>
+<p>For data files: <code>data_dir</code>, <code>data_local_dir</code></p><ul>
+<li>Files portable across machines - icons, fonts, desktop entries and such.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_CACHE_HOME</code> or <code>$HOME/.cache</code>   </td><td class="markdownTableBodyCenter">/home/foo/.cache    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code>home_dir()</code> + "/Library/Caches"   </td><td class="markdownTableBodyCenter">/Users/Foo/Library/Caches    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_LocalAppData</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\AppData\Local   </td></tr>
+</table>
 
 </div>
 </div>
@@ -216,6 +380,24 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Used for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, ...)</p><ul>
+<li>The directory MUST be owned by the user, and the user MUST be the only one having read and write access to it</li>
+<li>Its Unix access mode MUST be 0700</li>
+<li>It should be used for communication and synchronization purposes</li>
+<li>Large files should not be placed in here, since it might reside in runtime memory and cannot necessarily be swapped out to disk</li>
+<li>It may be subject to periodic cleanup.</li>
+</ul>
+<p>This directory doesn't exist on windows and macOS!</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_RUNTIME_DIR</code>   </td><td class="markdownTableBodyCenter">/run/foo/1000    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter">nullopt   </td><td class="markdownTableBodyCenter">nullopt    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">nullopt   </td><td class="markdownTableBodyCenter">nullopt   </td></tr>
+</table>
 
 </div>
 </div>
@@ -230,6 +412,30 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory for state files - logs, history and such.</p>
+<p>This directory doesn't exist on windows and macOS! Use <code>bundle.state_dir.value_or(bundle.data_local_dir)</code>.</p>
+<p>For cache files: <code>cache_dir</code></p><ul>
+<li>Intermediate files created for more expensive processes.</li>
+<li>Saved data used to speed up the application by not computing things unnecessarilly.</li>
+<li>Generally cached files that the user will not care for.</li>
+</ul>
+<p>For configuration files: <code>config_dir</code>, <code>config_local_dir</code> or <code>preference_dir</code></p><ul>
+<li>Files used to alter the behaviour of the application to the user preferences.</li>
+<li>The user may wish and typically does back up those.</li>
+</ul>
+<p>For data files: <code>data_dir</code>, <code>data_local_dir</code></p><ul>
+<li>Files portable across machines - icons, fonts, desktop entries and such.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_STATE_HOME</code> or <code>$HOME/.local/state</code>   </td><td class="markdownTableBodyCenter">/home/foo/.local/state    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter">nullopt   </td><td class="markdownTableBodyCenter">nullopt    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">nullopt   </td><td class="markdownTableBodyCenter">nullopt   </td></tr>
+</table>
 
 </div>
 </div>

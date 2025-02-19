@@ -1,10 +1,5 @@
 var namespacedire_1_1project =
 [
-    [ "detail", "namespacedire_1_1project_1_1detail.html", [
-      [ "concat_project_path", "namespacedire_1_1project_1_1detail.html#a6776c5efb65d4c5d1c402b1d2cf9f79b", null ],
-      [ "map_project_path", "namespacedire_1_1project_1_1detail.html#a995857ab8fe53adc610448ee0af7a369", null ],
-      [ "trim", "namespacedire_1_1project_1_1detail.html#a597b2c7671b838f0b76cb3adcb173e8a", null ]
-    ] ],
     [ "IReallyWantMyOwnPlatformProjectName", "classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html", "classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName" ],
     [ "PlatformProjectName", "classdire_1_1project_1_1PlatformProjectName.html", "classdire_1_1project_1_1PlatformProjectName" ],
     [ "ProjectDirsBundle", "structdire_1_1project_1_1ProjectDirsBundle.html", "structdire_1_1project_1_1ProjectDirsBundle" ],

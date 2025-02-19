@@ -124,7 +124,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a16cac7b6047601b3f6c3d7b3081f4a18" id="r_a16cac7b6047601b3f6c3d7b3081f4a18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedire.html#a4e5a27eb337e9b7d217e6ca9e41ec10a">Optional</a>&lt; <a class="el" href="namespacedire.html#af8e12c24069d89075127a6ccd76a651a">Path</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a16cac7b6047601b3f6c3d7b3081f4a18">template_dir</a></td></tr>
 <tr class="separator:a16cac7b6047601b3f6c3d7b3081f4a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A bundle of all user directories. <br  />
+</p>
+<p>User directories are directories mostly used by the user and user programs.</p>
+<p><code>template_dir</code> doesn't exist on linux systems. <br  />
+ <code>font_dir</code> doesn't exists on windows. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a49daa906d5ba0981203048889653ed8c" name="a49daa906d5ba0981203048889653ed8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49daa906d5ba0981203048889653ed8c">&#9670;&#160;</a></span>audio_dir</h2>
 
@@ -136,6 +142,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Typically used to store audio files, programs which download and/or work with audio files may also use it.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_MUSIC_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Music    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Music"   </td><td class="markdownTableBodyCenter">/Users/Foo/Music    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Music</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\Music   </td></tr>
+</table>
 
 </div>
 </div>
@@ -150,6 +167,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This is the directory whose contents are displayed on the desktop (on Linux desktops are not always available, which is typically the case for Tiling Window Managers).</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_DESKTOP_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Desktop    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Desktop"   </td><td class="markdownTableBodyCenter">/Users/Foo/Desktop    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Desktop</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\Desktop   </td></tr>
+</table>
 
 </div>
 </div>
@@ -164,6 +192,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Used mostly for plaintext and text processor documents. Lots of other programs may use it as well, especially ones made for designing.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_DOCUMENTS_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Documents    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Documents"   </td><td class="markdownTableBodyCenter">/Users/Foo/Documents    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Documents</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\Documents   </td></tr>
+</table>
 
 </div>
 </div>
@@ -178,6 +217,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Mostly used by browsers for saved files. Some other programs may utilize it as well.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_DOWNLOAD_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Downloads    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Downloads"   </td><td class="markdownTableBodyCenter">/Users/Foo/Downloads    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Downloads</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\Downloads   </td></tr>
+</table>
 
 </div>
 </div>
@@ -192,6 +242,20 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Directory for font files.</p>
+<p>It doesn't exist on windows, as it doesn't have a one, standard directory for fonts. <br  />
+ They are typically put and found in <code>\WINDIR%\Fonts</code> - typically <code>C:\Windows\Fonts</code> <br  />
+ or <code>\LOCALAPPDATA%\Microsoft\Windows\Fonts\</code> - typically <code>C:\Users\Foo\AppData\Local\Microsoft\Windows\Fonts</code>.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_DATA_HOME</code>/fonts or $HOME/.local/share/fonts   </td><td class="markdownTableBodyCenter">/home/foo/Public    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Library/Fonts"   </td><td class="markdownTableBodyCenter">/Users/Foo/Library/Fonts    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">nullopt   </td><td class="markdownTableBodyCenter">nullopt   </td></tr>
+</table>
 
 </div>
 </div>
@@ -206,6 +270,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The home directory. It typically contains all user files and user subfolders. A lot of programs also write their configuration files in here, either at top level or in <code>.config</code>.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$HOME</code> or <code>getpwuid_r</code> if <code>$HOME</code> isn't available   </td><td class="markdownTableBodyCenter">/home/foo    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code>$HOME</code> or <code>getpwuid_r</code> if $HOME isn't available   </td><td class="markdownTableBodyCenter">/Users/Foo    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Profile</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo   </td></tr>
+</table>
 
 </div>
 </div>
@@ -220,6 +295,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Typically used by programs for downloading and manipulating images.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_PICTURES_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Pictures    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Pictures"   </td><td class="markdownTableBodyCenter">/Users/Foo/Pictures    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Pictures</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\Pictures   </td></tr>
+</table>
 
 </div>
 </div>
@@ -234,6 +320,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A directory that all users have access to. This is especially useful for windows and mac which have native solutions for sharing these over network.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_PUBLICSHARE_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Public    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Public"   </td><td class="markdownTableBodyCenter">/Users/Foo/Public    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Public</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\Public   </td></tr>
+</table>
 
 </div>
 </div>
@@ -248,6 +345,19 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Directory for user template files.</p>
+<p>On linux users can drop all kinds of template files there, which the desktop environment then picks up and allows creating new documents based on them from a contextual menu.</p>
+<p>On windows this folder is typically dependent on user programs, like the software from the Microsoft suite or its other alternatives - which means there's a bigger chance for it to fail!</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_TEMPLATES_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Templates    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter">nullopt   </td><td class="markdownTableBodyCenter">nullopt    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Templates</code>   </td><td class="markdownTableBodyCenter">C:\Users\Alice\AppData\Roaming\Microsoft\Windows\Templates   </td></tr>
+</table>
 
 </div>
 </div>
@@ -262,6 +372,18 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Typically used by programs for downloading videos.</p>
+<p>Mac has a special case here and names the dir <code>Movies</code></p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Platform   </th><th class="markdownTableHeadCenter">Method   </th><th class="markdownTableHeadCenter">Example    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Linux   </td><td class="markdownTableBodyCenter"><code>$XDG_VIDEOS_DIR</code>   </td><td class="markdownTableBodyCenter">/home/foo/Videos    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Mac   </td><td class="markdownTableBodyCenter"><code><a class="el" href="structdire_1_1user_1_1UserDirsBundle.html#a2170bd71e0d63c00dd1788e800ef78b9">home_dir()</a></code> + "/Pictures"   </td><td class="markdownTableBodyCenter">/Users/Foo/Movies    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Windows   </td><td class="markdownTableBodyCenter">Known Folder API <code>FOLDERID_Videos</code>   </td><td class="markdownTableBodyCenter">C:\Users\Foo\Videos   </td></tr>
+</table>
 
 </div>
 </div>

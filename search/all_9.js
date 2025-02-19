@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['map_5fproject_5fpath_0',['map_project_path',['../namespacedire_1_1project_1_1detail.html#a995857ab8fe53adc610448ee0af7a369',1,'dire::project::detail']]]
+  ['license_0',['License',['../index.html#autotoc_md13',1,'']]],
+  ['local_20dirs_1',['Local vs non-local dirs',['../md_docs_2explanations.html#autotoc_md1',1,'']]],
+  ['local_20vs_20non_20local_20dirs_2',['Local vs non-local dirs',['../md_docs_2explanations.html#autotoc_md1',1,'']]]
 ];

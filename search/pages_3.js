@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['implementations_0',['Differences between this and other implementations',['../md_docs_2differences.html',1,'']]]
+  ['s_0',['How to&apos;s',['../md_docs_2how-tos.html',1,'']]]
 ];
