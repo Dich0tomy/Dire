@@ -65,7 +65,7 @@ would fit my needs, but it's.. Rust, not C++ - so I wrote this.
 
 - [ ] Add conan and vcpkg packaging methods **\***
 
-- [ ] Package returned dirs in special objects with the following methods **\***:
+- [ ] Package returned dirs in special objects with the following methods (this is not necessarily trivial as the notion of `writable` or `readable` is really dependent)**\***:
 	- [ ] `writable() -> bool` - cross platform checking if the dir is writable into (we mean every notion of writable - delete, update, create new file, etc.)
 	- [ ] `readable() -> bool` - cross platform checking if the dir is readble (same here)
 	- [ ] `writable_and_readable() -> bool` - `return writable() and readable();`
