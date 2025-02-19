@@ -16,7 +16,7 @@ TEST_CASE("Proper base dirs are returned", "[base_dirs]")
 	REQUIRE(*b::data_dir() == "/home/user/Library/Application Support");
 	REQUIRE(*b::data_local_dir() == "/home/user/Library/Application Support");
 	REQUIRE(*b::config_local_dir() == "/home/user/Library/Application Support");
-	REQUIRE(*b::preference_dir() == "/home/user/Library/Preferences");
+	REQUIRE(*b::preference_dir() == "/home/user/Library/Application Support");
 
 	REQUIRE(*b::cache_dir() == "/home/user/Library/Caches");
 
