@@ -1,5 +1,7 @@
 {
   mkShell,
+  nil,
+  justbuild,
   gcc11Stdenv,
   llvmPackages_16,
   act,
@@ -18,12 +20,6 @@
   #
   # Packages
   #
-  baseShellDeps = [
-    doxygen
-    cmake
-    graphviz
-  ];
-
   devPackages = [
     act
   ];
@@ -31,24 +27,33 @@
   baseShellAttrs = {
     hardeningDisable = ["all"];
 
-    packages =
-      [
-        meson
-        ninja
-        pkg-config
+    nativeBuildInputs = [
+      justbuild
+      nil
 
-        catch2_3
-        fmt
-        tl-optional
-        tl-expected
-      ]
-      ++ baseShellDeps;
+      meson
+      ninja
+      pkg-config
+
+      doxygen
+      cmake
+      graphviz
+    ];
+
+    buildInputs = [
+      catch2_3
+      fmt
+      tl-optional
+      tl-expected
+    ];
   };
 
   baseDevShellAttrs =
     baseShellAttrs
     // {
-      packages = baseShellAttrs.packages ++ devPackages;
+      inherit (baseShellAttrs) buildInputs;
+
+      nativeBuildInputs = baseShellAttrs.nativeBuildInputs ++ devPackages;
     };
 
   #
