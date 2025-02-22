@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['video_5fdir_0',['video_dir',['../structdire_1_1user_1_1UserDirsBundle.html#a76687b854a1097839d7c57bf3163e15e',1,'dire::user::UserDirsBundle::video_dir'],['../namespacedire_1_1user.html#a1d449d3cfd45cd326102a215f856a5f1',1,'dire::user::video_dir()']]],
-  ['vs_20non_20local_20dirs_1',['Local vs non-local dirs',['../md_docs_2explanations.html#autotoc_md1',1,'']]],
-  ['vs_20preference_20dir_2',['Config vs preference dir',['../md_docs_2explanations.html#autotoc_md2',1,'']]]
+  ['usage_20using_20the_20bundle_20api_0',['Basic usage using the bundle API',['../md_docs_2how-tos.html#autotoc_md6',1,'']]],
+  ['usage_20using_20the_20function_20api_1',['Basic usage using the function API',['../md_docs_2how-tos.html#autotoc_md5',1,'']]],
+  ['user_2ehpp_2',['user.hpp',['../user_8hpp.html',1,'']]],
+  ['userdirsbundle_3',['UserDirsBundle',['../structdire_1_1UserDirsBundle.html',1,'dire']]],
+  ['using_20the_20bundle_20api_4',['Basic usage using the bundle API',['../md_docs_2how-tos.html#autotoc_md6',1,'']]],
+  ['using_20the_20function_20api_5',['Basic usage using the function API',['../md_docs_2how-tos.html#autotoc_md5',1,'']]],
+  ['using_20the_20project_20api_6',['Using the project API',['../md_docs_2how-tos.html#autotoc_md7',1,'']]],
+  ['using_20your_20own_20name_20instead_20of_20the_20cross_20platform_20generated_20one_7',['Using your own name instead of the cross-platform generated one',['../md_docs_2how-tos.html#autotoc_md8',1,'']]]
 ];

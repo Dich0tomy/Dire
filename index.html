@@ -117,25 +117,25 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> project_org = <span class="stringliteral">&quot;dich0tomy&quot;</span>;</div>
 <div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> project_app_name = <span class="stringliteral">&quot;dire&quot;</span>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> <span class="keyword">const</span> project_name = <a class="code hl_function" href="namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd">dire::project::name</a>(project_domain, project_org, project_app_name);</div>
+<div class="line"><span class="keyword">auto</span> <span class="keyword">const</span> project_name = <a class="code hl_function" href="namespacedire.html#adf984751e33a7cf3299390eb6284b651">dire::name</a>(project_domain, project_org, project_app_name);</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> home_dir = <a class="code hl_function" href="namespacedire_1_1base.html#a3e831b039daaad98e093bca9ff3a1a60">dire::base::home_dir</a>();</div>
+<div class="line"><span class="keyword">auto</span> home_dir = <a class="code hl_function" href="namespacedire.html#a85362e10d58e4d464dce59cf56706539">dire::home_dir</a>();</div>
 <div class="line"><span class="keywordflow">if</span>(not home_dir) {</div>
-<div class="line">    <span class="comment">// Note that `dire::project::bundle` would also fail if this failed</span></div>
+<div class="line">    <span class="comment">// Note that `dire::ProjectDirsBundle::make` would also fail if this failed</span></div>
 <div class="line">    log::critical(<span class="stringliteral">&quot;Couldn&#39;t determine home directory!&quot;</span>);</div>
 <div class="line">    <span class="keywordflow">return</span> -1;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> project_dirs = <a class="code hl_function" href="namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6">dire::project::bundle</a>(project_name)) {</div>
+<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> project_dirs = <a class="code hl_function" href="structdire_1_1ProjectDirsBundle.html#a2bd8e6c26fbdf4ea482bcc7ff9f3ced4">dire::ProjectDirsBundle::make</a>(project_name)) {</div>
 <div class="line">    <span class="keyword">auto</span> config = Config::from_dir(projects_dirs-&gt;config_dir);</div>
 <div class="line"> </div>
 <div class="line">    App::from_conf(*home_dir, config).start();</div>
 <div class="line">} <span class="keywordflow">else</span> {</div>
 <div class="line">    bail(<span class="stringliteral">&quot;Couldn&#39;t determine basic project dirs.&quot;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespacedire_1_1base_html_a3e831b039daaad98e093bca9ff3a1a60"><div class="ttname"><a href="namespacedire_1_1base.html#a3e831b039daaad98e093bca9ff3a1a60">dire::base::home_dir</a></div><div class="ttdeci">auto home_dir() -&gt; Optional&lt; Path &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1project_html_a51480aa7c9b1743d59839a84b6cd2af6"><div class="ttname"><a href="namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6">dire::project::bundle</a></div><div class="ttdeci">auto bundle(PlatformProjectName project_name) -&gt; Optional&lt; ProjectDirsBundle &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1project_html_af55003ea6b2c6c5d59988e9a30547efd"><div class="ttname"><a href="namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd">dire::project::name</a></div><div class="ttdeci">auto name(std::string domain, std::string org, std::string app_name) -&gt; PlatformProjectName</div></div>
+<div class="ttc" id="anamespacedire_html_a85362e10d58e4d464dce59cf56706539"><div class="ttname"><a href="namespacedire.html#a85362e10d58e4d464dce59cf56706539">dire::home_dir</a></div><div class="ttdeci">auto home_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="ttc" id="anamespacedire_html_adf984751e33a7cf3299390eb6284b651"><div class="ttname"><a href="namespacedire.html#adf984751e33a7cf3299390eb6284b651">dire::name</a></div><div class="ttdeci">auto name(std::string domain, std::string org, std::string app_name) -&gt; PlatformProjectName</div></div>
+<div class="ttc" id="astructdire_1_1ProjectDirsBundle_html_a2bd8e6c26fbdf4ea482bcc7ff9f3ced4"><div class="ttname"><a href="structdire_1_1ProjectDirsBundle.html#a2bd8e6c26fbdf4ea482bcc7ff9f3ced4">dire::ProjectDirsBundle::make</a></div><div class="ttdeci">static auto make(PlatformProjectName project_name) -&gt; Optional&lt; ProjectDirsBundle &gt;</div></div>
 </div><!-- fragment --><p><a href="./src/test">Tests</a> should be simple, readable and comprehensive enough to show all possible usage examples as well.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Documentation (&lt;a href="https://diataxis.fr" &gt;diataxis&lt;/a&gt;*)</h1>

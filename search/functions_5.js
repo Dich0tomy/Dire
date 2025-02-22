@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['font_5fdir_0',['font_dir',['../namespacedire_1_1user.html#a059816931348a484047f4127b0964580',1,'dire::user']]]
+  ['home_5fdir_0',['home_dir',['../namespacedire.html#a85362e10d58e4d464dce59cf56706539',1,'dire']]]
 ];

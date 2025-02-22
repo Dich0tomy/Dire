@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['template_5fdir_0',['template_dir',['../structdire_1_1user_1_1UserDirsBundle.html#a16cac7b6047601b3f6c3d7b3081f4a18',1,'dire::user::UserDirsBundle::template_dir'],['../namespacedire_1_1user.html#ac255dcc46a9f016f0c4ac12c641255de',1,'dire::user::template_dir()']]],
-  ['the_20bundle_20api_1',['Basic usage using the bundle API',['../md_docs_2how-tos.html#autotoc_md6',1,'']]],
-  ['the_20cross_20platform_20generated_20one_2',['Using your own name instead of the cross-platform generated one',['../md_docs_2how-tos.html#autotoc_md8',1,'']]],
-  ['the_20function_20api_3',['Basic usage using the function API',['../md_docs_2how-tos.html#autotoc_md5',1,'']]],
-  ['the_20project_20api_4',['Using the project API',['../md_docs_2how-tos.html#autotoc_md7',1,'']]],
-  ['to_20s_5',['How to&apos;s',['../md_docs_2how-tos.html',1,'']]]
+  ['s_0',['How to&apos;s',['../md_docs_2how-tos.html',1,'']]],
+  ['started_1',['How it started',['../index.html#autotoc_md11',1,'']]],
+  ['state_20data_20config_2',['Cache, state, data, config',['../md_docs_2explanations.html#autotoc_md3',1,'']]],
+  ['state_5fdir_3',['state_dir',['../structdire_1_1BaseDirsBundle.html#a49f3703ac77af384a5c0b58d2ce12040',1,'dire::BaseDirsBundle::state_dir'],['../structdire_1_1ProjectDirsBundle.html#a25b4d503846b926ecd3c095e0f7c97e4',1,'dire::ProjectDirsBundle::state_dir'],['../namespacedire.html#a11cf2fc2e6d13e8b3d2253818fc53a5f',1,'dire::state_dir() -&gt; Optional&lt; Path &gt;'],['../namespacedire.html#aa737bfe8d52def3cff704bcbf8337831',1,'dire::state_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;']]]
 ];

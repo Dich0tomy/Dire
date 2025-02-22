@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['bundle_0',['bundle',['../namespacedire_1_1base.html#a333e803e7827dee9f36d5aaa7a7d78ce',1,'dire::base::bundle()'],['../namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6',1,'dire::project::bundle()'],['../namespacedire_1_1user.html#a84fc724f0e2c2724fe9ee4ff12e6af98',1,'dire::user::bundle()']]]
+  ['cache_5fdir_0',['cache_dir',['../namespacedire.html#ac43f74db231b318b14e7e78d3bc113b6',1,'dire::cache_dir() -&gt; Optional&lt; Path &gt;'],['../namespacedire.html#aaacad227ecbb4d8a3d5fe6dd238c3951',1,'dire::cache_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;']]],
+  ['config_5fdir_1',['config_dir',['../namespacedire.html#ab67117c6d94e42501d82f9c0d6e4f42b',1,'dire::config_dir() -&gt; Optional&lt; Path &gt;'],['../namespacedire.html#a056504fb67082586397c25de0ea2b5dc',1,'dire::config_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;']]],
+  ['config_5flocal_5fdir_2',['config_local_dir',['../namespacedire.html#acc34cd3adb9b15c57fa97ae33cbc8294',1,'dire::config_local_dir() -&gt; Optional&lt; Path &gt;'],['../namespacedire.html#a66f9fd658f63c6acbe0a129c30c34a3b',1,'dire::config_local_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state_5fdir_0',['state_dir',['../namespacedire_1_1base.html#a6bead657f4c0fe3693681415de626f0f',1,'dire::base::state_dir()'],['../namespacedire_1_1project.html#ab42d30eb90c2e5f14560ebb33219a417',1,'dire::project::state_dir()']]]
+  ['state_5fdir_0',['state_dir',['../namespacedire.html#a11cf2fc2e6d13e8b3d2253818fc53a5f',1,'dire::state_dir() -&gt; Optional&lt; Path &gt;'],['../namespacedire.html#aa737bfe8d52def3cff704bcbf8337831',1,'dire::state_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;']]]
 ];

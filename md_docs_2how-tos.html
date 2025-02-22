@@ -98,34 +98,34 @@ $(document).ready(function(){initNavTree('md_docs_2how-tos.html',''); initResiza
 <div class="textblock"><p><a class="anchor" id="autotoc_md4"></a> This document shows a few common operations one would like to perform with this library.</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Basic usage using the function API</h1>
-<div class="fragment"><div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire_1_1base.html#a2cf4b1506ba76e657a062d918d04bc79">dire::base::cache_dir</a>().value_or(<span class="stringliteral">&quot;Couldn&#39;t determine cache dir.&quot;</span>));</div>
+<div class="fragment"><div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire.html#ac43f74db231b318b14e7e78d3bc113b6">dire::cache_dir</a>().value_or(<span class="stringliteral">&quot;Couldn&#39;t determine cache dir.&quot;</span>));</div>
 <div class="line"><span class="comment">// Will assert if we couldn&#39;t determine home dir (wchis is rare, though)</span></div>
-<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire_1_1base.html#a3e831b039daaad98e093bca9ff3a1a60">dire::base::home_dir</a>());</div>
+<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire.html#a85362e10d58e4d464dce59cf56706539">dire::home_dir</a>());</div>
 <div class="line"> </div>
-<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire_1_1user.html#a5f5b3e6b7f25f8e6479edba044cc8cf6">dire::user::audio_dir</a>());</div>
-<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire_1_1user.html#a1af054696bbb48452d109014e02ebf41">dire::user::download_dir</a>());</div>
+<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire.html#a9b12a0771804270240b14fe382359252">dire::audio_dir</a>());</div>
+<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire.html#a627f6249e350d40adb192f5f5d7866a7">dire::download_dir</a>());</div>
 <div class="line"><span class="comment">// This is guaranteed to fail on windows</span></div>
-<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire_1_1user.html#a059816931348a484047f4127b0964580">dire::user::font_dir</a>());</div>
-<div class="ttc" id="anamespacedire_1_1base_html_a2cf4b1506ba76e657a062d918d04bc79"><div class="ttname"><a href="namespacedire_1_1base.html#a2cf4b1506ba76e657a062d918d04bc79">dire::base::cache_dir</a></div><div class="ttdeci">auto cache_dir() -&gt; Optional&lt; Path &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1base_html_a3e831b039daaad98e093bca9ff3a1a60"><div class="ttname"><a href="namespacedire_1_1base.html#a3e831b039daaad98e093bca9ff3a1a60">dire::base::home_dir</a></div><div class="ttdeci">auto home_dir() -&gt; Optional&lt; Path &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1user_html_a059816931348a484047f4127b0964580"><div class="ttname"><a href="namespacedire_1_1user.html#a059816931348a484047f4127b0964580">dire::user::font_dir</a></div><div class="ttdeci">auto font_dir() -&gt; Optional&lt; Path &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1user_html_a1af054696bbb48452d109014e02ebf41"><div class="ttname"><a href="namespacedire_1_1user.html#a1af054696bbb48452d109014e02ebf41">dire::user::download_dir</a></div><div class="ttdeci">auto download_dir() -&gt; Optional&lt; Path &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1user_html_a5f5b3e6b7f25f8e6479edba044cc8cf6"><div class="ttname"><a href="namespacedire_1_1user.html#a5f5b3e6b7f25f8e6479edba044cc8cf6">dire::user::audio_dir</a></div><div class="ttdeci">auto audio_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="line">fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *<a class="code hl_function" href="namespacedire.html#afa939cf5a11f1242ccd3bc86f5b0eb6f">dire::font_dir</a>());</div>
+<div class="ttc" id="anamespacedire_html_a627f6249e350d40adb192f5f5d7866a7"><div class="ttname"><a href="namespacedire.html#a627f6249e350d40adb192f5f5d7866a7">dire::download_dir</a></div><div class="ttdeci">auto download_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="ttc" id="anamespacedire_html_a85362e10d58e4d464dce59cf56706539"><div class="ttname"><a href="namespacedire.html#a85362e10d58e4d464dce59cf56706539">dire::home_dir</a></div><div class="ttdeci">auto home_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="ttc" id="anamespacedire_html_a9b12a0771804270240b14fe382359252"><div class="ttname"><a href="namespacedire.html#a9b12a0771804270240b14fe382359252">dire::audio_dir</a></div><div class="ttdeci">auto audio_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="ttc" id="anamespacedire_html_ac43f74db231b318b14e7e78d3bc113b6"><div class="ttname"><a href="namespacedire.html#ac43f74db231b318b14e7e78d3bc113b6">dire::cache_dir</a></div><div class="ttdeci">auto cache_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="ttc" id="anamespacedire_html_afa939cf5a11f1242ccd3bc86f5b0eb6f"><div class="ttname"><a href="namespacedire.html#afa939cf5a11f1242ccd3bc86f5b0eb6f">dire::font_dir</a></div><div class="ttdeci">auto font_dir() -&gt; Optional&lt; Path &gt;</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Basic usage using the bundle API</h1>
-<div class="fragment"><div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="namespacedire_1_1base.html#a333e803e7827dee9f36d5aaa7a7d78ce">dire::base::bundle</a>()) {</div>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="structdire_1_1BaseDirsBundle.html#ab0c9bd473fa4e6e13c29c6ecb01b0570">dire::BaseDirsBundle::make</a>()) {</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;home_dir);</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;cache_dir);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="namespacedire_1_1user.html#a84fc724f0e2c2724fe9ee4ff12e6af98">dire::user::bundle</a>()) {</div>
+<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="structdire_1_1UserDirsBundle.html#a4ee4128014a9cebd4c6e067d85bdf90c">dire::UserDirsBundle::make</a>()) {</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;audio_dir);</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;download_dir);</div>
 <div class="line">    <span class="comment">// Some fields in the bundle are still optional. This is guaranteed to fail on windows.</span></div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, *bundle-&gt;font_dir);</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespacedire_1_1base_html_a333e803e7827dee9f36d5aaa7a7d78ce"><div class="ttname"><a href="namespacedire_1_1base.html#a333e803e7827dee9f36d5aaa7a7d78ce">dire::base::bundle</a></div><div class="ttdeci">auto bundle() -&gt; Optional&lt; BaseDirsBundle &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1user_html_a84fc724f0e2c2724fe9ee4ff12e6af98"><div class="ttname"><a href="namespacedire_1_1user.html#a84fc724f0e2c2724fe9ee4ff12e6af98">dire::user::bundle</a></div><div class="ttdeci">auto bundle() -&gt; Optional&lt; UserDirsBundle &gt;</div></div>
+<div class="ttc" id="astructdire_1_1BaseDirsBundle_html_ab0c9bd473fa4e6e13c29c6ecb01b0570"><div class="ttname"><a href="structdire_1_1BaseDirsBundle.html#ab0c9bd473fa4e6e13c29c6ecb01b0570">dire::BaseDirsBundle::make</a></div><div class="ttdeci">static auto make() -&gt; Optional&lt; BaseDirsBundle &gt;</div></div>
+<div class="ttc" id="astructdire_1_1UserDirsBundle_html_a4ee4128014a9cebd4c6e067d85bdf90c"><div class="ttname"><a href="structdire_1_1UserDirsBundle.html#a4ee4128014a9cebd4c6e067d85bdf90c">dire::UserDirsBundle::make</a></div><div class="ttdeci">static auto make() -&gt; Optional&lt; UserDirsBundle &gt;</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
 Using the project API</h1>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> project_domain = <span class="stringliteral">&quot;Me&quot;</span>;</div>
@@ -140,36 +140,35 @@ Using the project API</h1>
 <div class="line"><span class="comment">// | Linux    | dire              |</span></div>
 <div class="line"><span class="comment">// | Mac      | me.dich0tomy.dire |</span></div>
 <div class="line"><span class="comment">// | Windows  | Dichotomy/Dire    |</span></div>
-<div class="line"><span class="comment">// See the documentation of `dire::project::name()` for more details.</span></div>
-<div class="line"><span class="keyword">auto</span> <span class="keyword">const</span> project_name = <a class="code hl_function" href="namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd">dire::project::name</a>(project_domain, project_org, project_app_name);</div>
+<div class="line"><span class="comment">// See the documentation of `dire::name()` for more details.</span></div>
+<div class="line"><span class="keyword">auto</span> <span class="keyword">const</span> project_name = <a class="code hl_function" href="namespacedire.html#adf984751e33a7cf3299390eb6284b651">dire::name</a>(project_domain, project_org, project_app_name);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Then we can use it to obtain a bundle or use the standalone functions:</span></div>
-<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6">dire::project::bundle</a>(project_name)) {</div>
+<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="structdire_1_1ProjectDirsBundle.html#a2bd8e6c26fbdf4ea482bcc7ff9f3ced4">dire::ProjectDirsBundle::make</a>(project_name)) {</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;cache_dir);</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;config_dir);</div>
 <div class="line">    <span class="comment">// Will result with the same as above</span></div>
-<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire_1_1project.html#aa8a372386c67c5e7f45c2f170640f2e3">dire::project::cache_dir</a>(project_name));</div>
-<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire_1_1project.html#aa5ab4f9ad33ee4e7e94e3ee87cde2dff">dire::project::config_dir</a>(project_name));</div>
+<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire.html#ac43f74db231b318b14e7e78d3bc113b6">dire::cache_dir</a>(project_name));</div>
+<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire.html#ab67117c6d94e42501d82f9c0d6e4f42b">dire::config_dir</a>(project_name));</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespacedire_1_1project_html_a51480aa7c9b1743d59839a84b6cd2af6"><div class="ttname"><a href="namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6">dire::project::bundle</a></div><div class="ttdeci">auto bundle(PlatformProjectName project_name) -&gt; Optional&lt; ProjectDirsBundle &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1project_html_aa5ab4f9ad33ee4e7e94e3ee87cde2dff"><div class="ttname"><a href="namespacedire_1_1project.html#aa5ab4f9ad33ee4e7e94e3ee87cde2dff">dire::project::config_dir</a></div><div class="ttdeci">auto config_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1project_html_aa8a372386c67c5e7f45c2f170640f2e3"><div class="ttname"><a href="namespacedire_1_1project.html#aa8a372386c67c5e7f45c2f170640f2e3">dire::project::cache_dir</a></div><div class="ttdeci">auto cache_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;</div></div>
-<div class="ttc" id="anamespacedire_1_1project_html_af55003ea6b2c6c5d59988e9a30547efd"><div class="ttname"><a href="namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd">dire::project::name</a></div><div class="ttdeci">auto name(std::string domain, std::string org, std::string app_name) -&gt; PlatformProjectName</div></div>
+<div class="ttc" id="anamespacedire_html_ab67117c6d94e42501d82f9c0d6e4f42b"><div class="ttname"><a href="namespacedire.html#ab67117c6d94e42501d82f9c0d6e4f42b">dire::config_dir</a></div><div class="ttdeci">auto config_dir() -&gt; Optional&lt; Path &gt;</div></div>
+<div class="ttc" id="anamespacedire_html_adf984751e33a7cf3299390eb6284b651"><div class="ttname"><a href="namespacedire.html#adf984751e33a7cf3299390eb6284b651">dire::name</a></div><div class="ttdeci">auto name(std::string domain, std::string org, std::string app_name) -&gt; PlatformProjectName</div></div>
+<div class="ttc" id="astructdire_1_1ProjectDirsBundle_html_a2bd8e6c26fbdf4ea482bcc7ff9f3ced4"><div class="ttname"><a href="structdire_1_1ProjectDirsBundle.html#a2bd8e6c26fbdf4ea482bcc7ff9f3ced4">dire::ProjectDirsBundle::make</a></div><div class="ttdeci">static auto make(PlatformProjectName project_name) -&gt; Optional&lt; ProjectDirsBundle &gt;</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 Using your own name instead of the cross-platform generated one</h1>
 <div class="fragment"><div class="line"><span class="comment">// If you really want to bypass the cross platform name mechanism you can do it that way:</span></div>
-<div class="line"><span class="keyword">auto</span> name = <a class="code hl_class" href="classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html">dire::project::IReallyWantMyOwnPlatformProjectName</a>(<span class="stringliteral">&quot;whatever you wish, princess&quot;</span>);</div>
+<div class="line"><span class="keyword">auto</span> name = <a class="code hl_class" href="classdire_1_1IReallyWantMyOwnPlatformProjectName.html">dire::IReallyWantMyOwnPlatformProjectName</a>(<span class="stringliteral">&quot;whatever you wish, princess&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// `PlatformProjectName` is implicitly constructible from `IReallyWantMyOwnPlatformProjectName`</span></div>
 <div class="line"><span class="comment">// so the below just works.</span></div>
-<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="namespacedire_1_1project.html#a51480aa7c9b1743d59839a84b6cd2af6">dire::project::bundle</a>(name)) {</div>
+<div class="line"><span class="keywordflow">if</span>(<span class="keyword">auto</span> bundle = <a class="code hl_function" href="structdire_1_1ProjectDirsBundle.html#a2bd8e6c26fbdf4ea482bcc7ff9f3ced4">dire::ProjectDirsBundle::make</a>(name)) {</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;cache_dir);</div>
 <div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, bundle-&gt;config_dir);</div>
 <div class="line">    <span class="comment">// Will result with the same as above</span></div>
-<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire_1_1project.html#aa8a372386c67c5e7f45c2f170640f2e3">dire::project::cache_dir</a>(name));</div>
-<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire_1_1project.html#aa5ab4f9ad33ee4e7e94e3ee87cde2dff">dire::project::config_dir</a>(name));</div>
+<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire.html#ac43f74db231b318b14e7e78d3bc113b6">dire::cache_dir</a>(name));</div>
+<div class="line">    fmt::println(<span class="stringliteral">&quot;{}&quot;</span>, <a class="code hl_function" href="namespacedire.html#ab67117c6d94e42501d82f9c0d6e4f42b">dire::config_dir</a>(name));</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName_html"><div class="ttname"><a href="classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html">dire::project::IReallyWantMyOwnPlatformProjectName</a></div><div class="ttdef"><b>Definition</b> project.hpp:16</div></div>
+<div class="ttc" id="aclassdire_1_1IReallyWantMyOwnPlatformProjectName_html"><div class="ttname"><a href="classdire_1_1IReallyWantMyOwnPlatformProjectName.html">dire::IReallyWantMyOwnPlatformProjectName</a></div><div class="ttdef"><b>Definition</b> project.hpp:16</div></div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

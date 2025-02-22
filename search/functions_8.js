@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../namespacedire_1_1project.html#af55003ea6b2c6c5d59988e9a30547efd',1,'dire::project']]]
+  ['name_0',['name',['../namespacedire.html#adf984751e33a7cf3299390eb6284b651',1,'dire']]]
 ];

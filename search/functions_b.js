@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['runtime_5fdir_0',['runtime_dir',['../namespacedire_1_1base.html#afdfbd1ac7e905d8ef6c924ca28e36da6',1,'dire::base::runtime_dir()'],['../namespacedire_1_1project.html#a8d9db219907df4ddcaf985d06b3647bf',1,'dire::project::runtime_dir()']]]
+  ['runtime_5fdir_0',['runtime_dir',['../namespacedire.html#a5198386ede3c11d86e6b3d0c4e81ea38',1,'dire::runtime_dir() -&gt; Optional&lt; Path &gt;'],['../namespacedire.html#a1f54d6c08f4c4d59b9fa58e5262f041f',1,'dire::runtime_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;']]]
 ];

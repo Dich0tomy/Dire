@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ireallywantmyownplatformprojectname_0',['IReallyWantMyOwnPlatformProjectName',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html#a28872aed0a60e765672e5dde35be6da8',1,'dire::project::IReallyWantMyOwnPlatformProjectName']]]
+  ['make_0',['make',['../structdire_1_1BaseDirsBundle.html#ab0c9bd473fa4e6e13c29c6ecb01b0570',1,'dire::BaseDirsBundle::make()'],['../structdire_1_1ProjectDirsBundle.html#a2bd8e6c26fbdf4ea482bcc7ff9f3ced4',1,'dire::ProjectDirsBundle::make()'],['../structdire_1_1UserDirsBundle.html#a4ee4128014a9cebd4c6e067d85bdf90c',1,'dire::UserDirsBundle::make()']]]
 ];

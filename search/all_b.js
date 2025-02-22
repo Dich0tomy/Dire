@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['of_20the_20cross_20platform_20generated_20one_0',['Using your own name instead of the cross-platform generated one',['../md_docs_2how-tos.html#autotoc_md8',1,'']]],
-  ['one_1',['Using your own name instead of the cross-platform generated one',['../md_docs_2how-tos.html#autotoc_md8',1,'']]],
-  ['operator_20path_2',['operator path',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html#a677de91803462a3a3023476d6f9b4424',1,'dire::project::IReallyWantMyOwnPlatformProjectName::operator Path()'],['../classdire_1_1project_1_1PlatformProjectName.html#a4bcd894e88e171c75856099098a9a145',1,'dire::project::PlatformProjectName::operator Path()']]],
-  ['operator_20path_20const_20_26_3',['operator path const &amp;',['../classdire_1_1project_1_1IReallyWantMyOwnPlatformProjectName.html#a2e3526afc2b9ab86b415e1019067d486',1,'dire::project::IReallyWantMyOwnPlatformProjectName::operator Path const &amp;()'],['../classdire_1_1project_1_1PlatformProjectName.html#afa7291f2ce5b6a067738cf7d63e1b1cb',1,'dire::project::PlatformProjectName::operator Path const &amp;()']]],
-  ['optional_4',['Optional',['../namespacedire.html#a4e5a27eb337e9b7d217e6ca9e41ec10a',1,'dire']]],
-  ['own_20name_20instead_20of_20the_20cross_20platform_20generated_20one_5',['Using your own name instead of the cross-platform generated one',['../md_docs_2how-tos.html#autotoc_md8',1,'']]]
+  ['name_0',['name',['../classdire_1_1PlatformProjectName.html#ae07d1c56be1883dae84bd602ef323c01',1,'dire::PlatformProjectName::name'],['../namespacedire.html#adf984751e33a7cf3299390eb6284b651',1,'dire::name()']]],
+  ['name_20instead_20of_20the_20cross_20platform_20generated_20one_1',['Using your own name instead of the cross-platform generated one',['../md_docs_2how-tos.html#autotoc_md8',1,'']]],
+  ['non_20local_20dirs_2',['Local vs non-local dirs',['../md_docs_2explanations.html#autotoc_md1',1,'']]]
 ];

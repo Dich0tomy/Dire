@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['template_5fdir_0',['template_dir',['../namespacedire_1_1user.html#ac255dcc46a9f016f0c4ac12c641255de',1,'dire::user']]]
+  ['template_5fdir_0',['template_dir',['../namespacedire.html#a2852e0cae95625390097387049ada1da',1,'dire']]]
 ];

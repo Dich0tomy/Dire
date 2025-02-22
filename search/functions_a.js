@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['picture_5fdir_0',['picture_dir',['../namespacedire_1_1user.html#aece103c4215fd6693ce8c835b6208def',1,'dire::user']]],
-  ['platformprojectname_1',['PlatformProjectName',['../classdire_1_1project_1_1PlatformProjectName.html#ab8ac18767324a4a3dbef2118ecb8697c',1,'dire::project::PlatformProjectName']]],
-  ['preference_5fdir_2',['preference_dir',['../namespacedire_1_1base.html#a5e286d16f976100a4a4282565be11cfa',1,'dire::base::preference_dir()'],['../namespacedire_1_1project.html#a2e0bbb14355911a7c5e84503940bdb70',1,'dire::project::preference_dir()']]],
-  ['public_5fdir_3',['public_dir',['../namespacedire_1_1user.html#abc4962000fa5a6f23b9b5f059e851002',1,'dire::user']]]
+  ['picture_5fdir_0',['picture_dir',['../namespacedire.html#aaa12beae7d487395c9e509fd17995a32',1,'dire']]],
+  ['platformprojectname_1',['PlatformProjectName',['../classdire_1_1PlatformProjectName.html#aeff912c7fa0e8edfe3583eed3d9e9f45',1,'dire::PlatformProjectName']]],
+  ['preference_5fdir_2',['preference_dir',['../namespacedire.html#a5d7fa742d1ce22d146d9b1bade2bd460',1,'dire::preference_dir() -&gt; Optional&lt; Path &gt;'],['../namespacedire.html#a8c7b938cd463386d66225225e9fa6477',1,'dire::preference_dir(PlatformProjectName project_name) -&gt; Optional&lt; Path &gt;']]],
+  ['public_5fdir_3',['public_dir',['../namespacedire.html#acd1fbcd30344b9620707832bdd3c845c',1,'dire']]]
 ];
