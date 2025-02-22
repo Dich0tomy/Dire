@@ -54,7 +54,7 @@ struct BaseDirsBundle
 		* On windows this directory can be synchronized in a domain.
 		*
 		* For applications that are meant for power users, developers, etc., prefer this. Otherwise, prefer `preference_dir`.  
-		* This matters on macOS as it stores the configuration files in `$HOME/.config` instead of `$HOME/Library/Preferences`.
+		* This matters on macOS as it stores the configuration files in `$HOME/.config` instead of `$HOME/Library/Application Support`.
 		*
 		* For cache files:
 		* 	`cache_dir`
@@ -88,7 +88,7 @@ struct BaseDirsBundle
 		* On windows this directory cannot be synchronized in the domain as opposed to `config_dir`.
 		*
 		* For applications that are meant for power users, developers, etc., prefer this. Otherwise, prefer `preference_dir`.  
-		* This matters on macOS as it stores the configuration files in `$HOME/.config` instead of `$HOME/Library/Preferences`.
+		* This matters on macOS as it stores the configuration files in `$HOME/.config` instead of `$HOME/Library/Application Support`.
 		*
 		* For cache files:
 		* 	`cache_dir`
@@ -182,7 +182,7 @@ struct BaseDirsBundle
 		*
 		* For applications that are meant for ordinary users prefer this.  
 		* For applications meant for developers and power users prefer `config_dir` or `config_local_dir`.  
-		* This matters on macOS as it stores the configuration files in `$HOME/Library/Preferences` instead of `$HOME/.config`.
+		* This matters on macOS as it stores the configuration files in `$HOME/Library/Application Support` instead of `$HOME/.config`.
 		*
 		* For cache files:
 		* 	`cache_dir`

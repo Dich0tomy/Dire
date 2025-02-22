@@ -14,8 +14,7 @@ TEST_CASE("Proper base dirs are returned", "[base_dirs]")
 	REQUIRE(*dire::data_dir() == "/home/user/Library/Application Support");
 	REQUIRE(*dire::data_local_dir() == "/home/user/Library/Application Support");
 	REQUIRE(*dire::config_local_dir() == "/home/user/Library/Application Support");
-	REQUIRE(*dire::preference_dir() == "/home/user/Library/Preferences");
-
+	REQUIRE(*dire::preference_dir() == "/home/user/Library/Application Support");
 	REQUIRE(*dire::cache_dir() == "/home/user/Library/Caches");
 
 	REQUIRE(not dire::executable_dir());

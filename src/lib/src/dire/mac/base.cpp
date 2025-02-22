@@ -34,7 +34,7 @@ auto concat_data_local_dir(dire::Path const& home) -> dire::Path
 
 auto concat_preference_dir(dire::Path const& home) -> dire::Path
 {
-	return home / "Library" / "Preferences";
+	return concat_config_dir(home);
 }
 
 } // namespace
