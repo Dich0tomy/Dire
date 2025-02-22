@@ -2,20 +2,20 @@
 
 #include <dire/detail/system_dirs/system_dirs.hpp>
 
-namespace dire::base
+namespace dire
 {
 
-auto bundle() -> Optional<BaseDirsBundle>
+auto BaseDirsBundle::make() -> Optional<BaseDirsBundle>
 {
-	auto home = home_dir();
-	auto data = data_dir();
-	auto data_local = data_local_dir();
+	auto home = ::dire::home_dir();
+	auto data = ::dire::data_dir();
+	auto data_local = ::dire::data_local_dir();
 
 	if(not home or not data or not data_local) {
 		return {};
 	}
 
-	return { {
+	return BaseDirsBundle {
 		.home_dir = *home,
 		.cache_dir = *data_local,
 		.config_dir = *data,
@@ -26,7 +26,7 @@ auto bundle() -> Optional<BaseDirsBundle>
 		.executable_dir = {},
 		.runtime_dir = {},
 		.state_dir = {},
-	} };
+	};
 }
 
 namespace system_dirs = dire::detail::system_dirs;
@@ -81,4 +81,4 @@ auto state_dir() -> Optional<Path>
 	return {};
 }
 
-} // namespace dire::base
+} // namespace dire

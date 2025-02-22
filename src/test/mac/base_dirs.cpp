@@ -6,41 +6,37 @@
 
 TEST_CASE("Proper base dirs are returned", "[base_dirs]")
 {
-	namespace b = dire::base;
-
 	tenv::set("HOME", "/home/user");
 
-	REQUIRE(*b::home_dir() == "/home/user");
+	REQUIRE(*dire::home_dir() == "/home/user");
 
-	REQUIRE(*b::config_dir() == "/home/user/Library/Application Support");
-	REQUIRE(*b::data_dir() == "/home/user/Library/Application Support");
-	REQUIRE(*b::data_local_dir() == "/home/user/Library/Application Support");
-	REQUIRE(*b::config_local_dir() == "/home/user/Library/Application Support");
-	REQUIRE(*b::preference_dir() == "/home/user/Library/Preferences");
+	REQUIRE(*dire::config_dir() == "/home/user/Library/Application Support");
+	REQUIRE(*dire::data_dir() == "/home/user/Library/Application Support");
+	REQUIRE(*dire::data_local_dir() == "/home/user/Library/Application Support");
+	REQUIRE(*dire::config_local_dir() == "/home/user/Library/Application Support");
+	REQUIRE(*dire::preference_dir() == "/home/user/Library/Preferences");
 
-	REQUIRE(*b::cache_dir() == "/home/user/Library/Caches");
+	REQUIRE(*dire::cache_dir() == "/home/user/Library/Caches");
 
-	REQUIRE(not b::executable_dir());
-	REQUIRE(not b::state_dir());
-	REQUIRE(not b::runtime_dir());
+	REQUIRE(not dire::executable_dir());
+	REQUIRE(not dire::state_dir());
+	REQUIRE(not dire::runtime_dir());
 }
 
 TEST_CASE("Bundle and individual functions return the same", "[base_dirs]")
 {
-	namespace b = dire::base;
+	auto bundle = dire::BaseDirsBundle::make();
 
-	auto bundle = b::bundle();
+	REQUIRE(*dire::home_dir() == bundle->home_dir);
 
-	REQUIRE(*b::home_dir() == bundle->home_dir);
+	REQUIRE(*dire::config_dir() == bundle->config_dir);
+	REQUIRE(*dire::data_dir() == bundle->data_dir);
+	REQUIRE(*dire::cache_dir() == bundle->cache_dir);
+	REQUIRE(*dire::data_local_dir() == bundle->data_local_dir);
+	REQUIRE(*dire::config_local_dir() == bundle->config_local_dir);
+	REQUIRE(*dire::preference_dir() == bundle->preference_dir);
 
-	REQUIRE(*b::config_dir() == bundle->config_dir);
-	REQUIRE(*b::data_dir() == bundle->data_dir);
-	REQUIRE(*b::cache_dir() == bundle->cache_dir);
-	REQUIRE(*b::data_local_dir() == bundle->data_local_dir);
-	REQUIRE(*b::config_local_dir() == bundle->config_local_dir);
-	REQUIRE(*b::preference_dir() == bundle->preference_dir);
-
-	REQUIRE(not b::executable_dir());
-	REQUIRE(not b::runtime_dir());
-	REQUIRE(not b::state_dir());
+	REQUIRE(not dire::executable_dir());
+	REQUIRE(not dire::runtime_dir());
+	REQUIRE(not dire::state_dir());
 }

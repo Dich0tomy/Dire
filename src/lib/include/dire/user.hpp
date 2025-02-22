@@ -2,7 +2,7 @@
 
 #include <dire/defines.hpp>
 
-namespace dire::user
+namespace dire
 {
 
 /**
@@ -16,19 +16,7 @@ namespace dire::user
  */
 struct UserDirsBundle
 {
-
-	/**
-		* The home directory. It typically contains all user files and user subfolders.
-		* A lot of programs also write their configuration files in here, either at top level or in `.config`.
-		*
-		* | Platform |                       Method                       |    Example   |
-		* |:--------:|:--------------------------------------------------:|:------------:|
-		* | Linux    | `$HOME` or `getpwuid_r` if `$HOME` isn't available | /home/foo    |
-		* | Mac      | `$HOME` or `getpwuid_r` if $HOME isn't available   | /Users/Foo   |
-		* | Windows  | Known Folder API `FOLDERID_Profile`                | C:\Users\Foo |
-	*/
-	Path home_dir;
-
+	static auto make() -> Optional<UserDirsBundle>;
 
 	/**
 		* Typically used to store audio files, programs which download and/or work with audio files may also use it.
@@ -146,18 +134,6 @@ struct UserDirsBundle
 	Optional<Path> template_dir;
 };
 
-/**
- 	* Returns a bundle of user directories.
- 	*
- 	* Fails when home cannot be determined.
- 	*
- 	* \see UserDirsBundle
-*/
-auto bundle() -> Optional<UserDirsBundle>;
-
-/// \copydoc UserDirsBundle::home_dir
-auto home_dir() -> Optional<Path>;
-
 /// \copydoc UserDirsBundle::audio_dir
 auto audio_dir() -> Optional<Path>;
 
@@ -185,4 +161,4 @@ auto font_dir() -> Optional<Path>;
 /// \copydoc UserDirsBundle::template_dir
 auto template_dir() -> Optional<Path>;
 
-} // namespace dire::user
+} // namespace dire

@@ -2,8 +2,9 @@
 
 #include <dire/defines.hpp>
 
-namespace dire::project::detail
+namespace dire::detail
 {
+
 auto trim(std::string str) -> std::string
 {
 	if(str.empty()) return "";
@@ -28,4 +29,4 @@ auto map_project_path(Optional<Path> path, PlatformProjectName project_name) -> 
 	});
 }
 
-} // namespace dire::project::detail
+} // namespace dire::detail

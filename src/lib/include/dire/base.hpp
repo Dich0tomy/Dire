@@ -2,7 +2,7 @@
 
 #include <dire/defines.hpp>
 
-namespace dire::base
+namespace dire
 {
 
 /**
@@ -15,6 +15,8 @@ namespace dire::base
  */
 struct BaseDirsBundle
 {
+	static auto make() -> Optional<BaseDirsBundle>;
+
 	/// \copydoc UserDirsBundle::home_dir
 	Path home_dir;
 
@@ -264,16 +266,7 @@ struct BaseDirsBundle
 	Optional<Path> state_dir;
 };
 
-/**
-	* Returns a bundle of base directories.
-	*
-	* Fails when home cannot be determined.
-	*
-	* \see BaseDirsBundle
-*/
-auto bundle() -> Optional<BaseDirsBundle>;
-
-/// \copydoc UserDirsBundle::home_dir
+/// \copydoc BaseDirsBundle::home_dir
 auto home_dir() -> Optional<Path>;
 
 /// \copydoc BaseDirsBundle::cache_dir
@@ -317,4 +310,4 @@ auto state_dir_from_home(dire::Path home) -> dire::Path;
 
 } // namespace detail
 
-} // namespace dire::base
+} // namespace dire

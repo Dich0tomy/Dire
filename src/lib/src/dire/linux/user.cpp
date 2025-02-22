@@ -30,7 +30,7 @@ auto download_dir_from_home(dire::Path const& home) -> dire::Path
 
 auto font_dir_from_home(dire::Path const& home) -> dire::Path
 {
-	return dire::base::detail::data_dir_from_home(home) / "fonts";
+	return dire::detail::data_dir_from_home(home) / "fonts";
 }
 
 auto picture_dir_from_home(dire::Path const& home) -> dire::Path
@@ -55,18 +55,16 @@ auto video_dir_from_home(dire::Path const& home) -> dire::Path
 
 } // namespace
 
-namespace dire::user
+namespace dire
 {
 
-auto bundle() -> Optional<UserDirsBundle>
+auto UserDirsBundle::make() -> Optional<UserDirsBundle>
 {
 	auto home = home_dir();
 
 	if(not home) return {};
 
-	return { {
-		.home_dir = *home,
-
+	return UserDirsBundle {
 		.audio_dir = ::audio_dir_from_home(*home),
 		.desktop_dir = ::desktop_dir_from_home(*home),
 		.document_dir = ::document_dir_from_home(*home),
@@ -77,12 +75,7 @@ auto bundle() -> Optional<UserDirsBundle>
 
 		.font_dir = ::font_dir_from_home(*home),
 		.template_dir = ::template_dir_from_home(*home),
-	} };
-}
-
-auto home_dir() -> Optional<Path>
-{
-	return detail::system_dirs::home_dir();
+	};
 }
 
 auto audio_dir() -> Optional<Path>
@@ -123,7 +116,7 @@ auto download_dir() -> Optional<Path>
 
 auto font_dir() -> Optional<Path>
 {
-	return base::data_dir().map([](auto const& path) { return path / "fonts"; });
+	return data_dir().map([](auto const& path) { return path / "fonts"; });
 }
 
 auto picture_dir() -> Optional<Path>
@@ -162,4 +155,4 @@ auto video_dir() -> Optional<Path>
 	return {};
 }
 
-} // namespace dire::user
+} // namespace dire
