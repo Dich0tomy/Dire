@@ -10,23 +10,21 @@
 namespace
 {
 
-auto project_roaming(dire::project::PlatformProjectName project_name) -> dire::Optional<dire::Path>
+auto project_roaming(dire::PlatformProjectName project_name) -> dire::Optional<dire::Path>
 {
-	namespace pd = dire::project::detail;
 	using namespace dire::detail;
 
-	return pd::map_project_path(
+	return map_project_path(
 		system_dirs::known_folder(system_dirs::KnownFolderID::RoamingAppData),
 		std::move(project_name)
 	);
 }
 
-auto project_local(dire::project::PlatformProjectName project_name) -> dire::Optional<dire::Path>
+auto project_local(dire::PlatformProjectName project_name) -> dire::Optional<dire::Path>
 {
-	namespace pd = dire::project::detail;
 	using namespace dire::detail;
 
-	return pd::map_project_path(
+	return map_project_path(
 		system_dirs::known_folder(system_dirs::KnownFolderID::LocalAppData),
 		std::move(project_name)
 	);
@@ -34,7 +32,7 @@ auto project_local(dire::project::PlatformProjectName project_name) -> dire::Opt
 
 } // namespace
 
-namespace dire::project
+namespace dire
 {
 
 auto name(std::string domain, [[maybe_unused]] std::string org, std::string app_name) -> PlatformProjectName
@@ -54,7 +52,7 @@ auto name(std::string domain, [[maybe_unused]] std::string org, std::string app_
 	);
 }
 
-auto bundle(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
+auto ProjectDirsBundle::make(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
 {
 	auto data_dir = project_roaming(std::move(project_name));
 	auto data_local = project_local(std::move(project_name));
@@ -63,7 +61,7 @@ auto bundle(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
 		return {};
 	}
 
-	namespace bd = base::detail;
+	namespace bd = detail;
 	using detail::concat_project_path;
 
 	return { {
@@ -118,4 +116,4 @@ auto state_dir(PlatformProjectName project_name) -> Optional<Path>
 	return {};
 }
 
-} // namespace dire::project
+} // namespace dire

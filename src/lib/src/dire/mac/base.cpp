@@ -39,15 +39,16 @@ auto concat_preference_dir(dire::Path const& home) -> dire::Path
 
 } // namespace
 
-namespace dire::base
+namespace dire
 {
-auto bundle() -> Optional<BaseDirsBundle>
+
+auto BaseDirsBundle::make() -> Optional<BaseDirsBundle>
 {
-	auto home = home_dir();
+	auto home = ::dire::home_dir();
 
 	if(not home) return {};
 
-	return { {
+	return BaseDirsBundle {
 		.home_dir = *home,
 		.cache_dir = concat_cache_dir(*home),
 		.config_dir = concat_config_dir(*home),
@@ -58,7 +59,7 @@ auto bundle() -> Optional<BaseDirsBundle>
 		.executable_dir = {},
 		.runtime_dir = {},
 		.state_dir = {},
-	} };
+	};
 }
 
 auto home_dir() -> Optional<Path>
@@ -111,4 +112,4 @@ auto state_dir() -> Optional<Path>
 	return {};
 }
 
-} // namespace dire::base
+} // namespace dire

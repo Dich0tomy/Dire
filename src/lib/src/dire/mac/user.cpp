@@ -50,18 +50,16 @@ auto concat_video_dir(dire::Path const& home) -> dire::Path
 
 } // namespace
 
-namespace dire::user
+namespace dire
 {
 
-auto bundle() -> Optional<UserDirsBundle>
+auto UserDirsBundle::make() -> Optional<UserDirsBundle>
 {
 	auto home = home_dir();
 
 	if(not home) return {};
 
-	return { {
-		.home_dir = *home,
-
+	return UserDirsBundle {
 		.audio_dir = concat_audio_dir(*home),
 		.desktop_dir = concat_desktop_dir(*home),
 		.document_dir = concat_document_dir(*home),
@@ -72,12 +70,7 @@ auto bundle() -> Optional<UserDirsBundle>
 
 		.font_dir = concat_font_dir(*home),
 		.template_dir = {},
-	} };
-}
-
-auto home_dir() -> Optional<Path>
-{
-	return detail::system_dirs::home_dir();
+	};
 }
 
 auto audio_dir() -> Optional<Path>
@@ -157,4 +150,4 @@ auto video_dir() -> Optional<Path>
 	return {};
 }
 
-} // namespace dire::user
+} // namespace dire

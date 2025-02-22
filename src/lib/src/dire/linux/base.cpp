@@ -4,7 +4,7 @@
 #include <dire/detail/system_dirs/shared.hpp>
 #include <dire/detail/getenv.hpp>
 
-namespace dire::base
+namespace dire
 {
 
 namespace detail
@@ -47,13 +47,13 @@ auto data_dir_from_home(dire::Path home) -> dire::Path
 
 } // namespace detail
 
-auto bundle() -> Optional<BaseDirsBundle>
+auto BaseDirsBundle::make() -> Optional<BaseDirsBundle>
 {
-	auto home = home_dir();
+	auto home = ::dire::home_dir();
 
 	if(not home) return {};
 
-	return { {
+	return BaseDirsBundle {
 		.home_dir = *home,
 		.cache_dir = detail::cache_dir_from_home(*home),
 		.config_dir = detail::config_dir_from_home(*home),
@@ -62,9 +62,9 @@ auto bundle() -> Optional<BaseDirsBundle>
 		.data_local_dir = detail::data_dir_from_home(*home),
 		.preference_dir = detail::config_dir_from_home(*home),
 		.executable_dir = detail::executable_dir_from_home(*home),
-		.runtime_dir = runtime_dir(),
+		.runtime_dir = ::dire::runtime_dir(),
 		.state_dir = detail::state_dir_from_home(*home),
-	} };
+	};
 }
 
 auto home_dir() -> Optional<Path>
@@ -138,4 +138,4 @@ auto state_dir() -> Optional<Path>
 	return {};
 }
 
-} // namespace dire::base
+} // namespace dire

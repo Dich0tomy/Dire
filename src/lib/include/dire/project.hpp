@@ -4,7 +4,7 @@
 
 #include <dire/defines.hpp>
 
-namespace dire::project
+namespace dire
 {
 
 /**
@@ -34,7 +34,7 @@ private:
  *
  * If you **REALLY** want to enforce your own name, initialize it by using `IReallyWantMyOwnPlatformProjectName`.
  *
- * This object is passed into `dire::project::bundle()` or all of `dire::project` free functions,
+ * This object is passed into `dire::ProjectDirsBundle::make()` or all of project free functions,
  * which return valid project directories.
  */
 class PlatformProjectName
@@ -67,6 +67,8 @@ private:
  */
 struct ProjectDirsBundle
 {
+	static auto make(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>;
+
 	/**
 		* A directory for program caches.  
 		* Only caches should be stored here (files safe to delete, i.e. download caches), not files that are meant to be persisted.
@@ -310,7 +312,7 @@ struct ProjectDirsBundle
 	* On linux only `app_name` is used and produces a name that is lowercased and with spaces removed.
 	* On windows only `app_name` and `org` are used and produces a path like `domain / name` without other modifications.
 	* On mac all three are used and produce a name like `domain.org.app_name` with all free segments lowercased and spaces replaced with hyphens.
-	* e.g. `dire::project::name("me", "dich0tomy", "dire")` will produce:
+	* e.g. `dire::name("me", "dich0tomy", "dire")` will produce:
 	* | Platform |       Result      |
 	* |:--------:|:-----------------:|
 	* | Linux    | dire              |
@@ -318,8 +320,6 @@ struct ProjectDirsBundle
 	* | Windows  | Dichotomy/Dire    |
 */
 auto name(std::string domain, std::string org, std::string app_name) -> PlatformProjectName;
-
-auto bundle(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>;
 
 /// \copydoc ProjectDirsBundle::cache_dir
 auto cache_dir(PlatformProjectName project_name) -> Optional<Path>;
@@ -356,4 +356,4 @@ auto map_project_path(Optional<Path> path, PlatformProjectName project_name) -> 
 
 } // namespace detail
 
-} // namespace dire::project
+} // namespace dire

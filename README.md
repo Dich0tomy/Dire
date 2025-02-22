@@ -20,16 +20,16 @@ static constexpr auto project_domain = "me";
 static constexpr auto project_org = "dich0tomy";
 static constexpr auto project_app_name = "dire";
 
-auto const project_name = dire::project::name(project_domain, project_org, project_app_name);
+auto const project_name = dire::name(project_domain, project_org, project_app_name);
 
-auto home_dir = dire::base::home_dir();
+auto home_dir = dire::home_dir();
 if(not home_dir) {
-	// Note that `dire::project::bundle` would also fail if this failed
+	// Note that `dire::ProjectDirsBundle::make` would also fail if this failed
 	log::critical("Couldn't determine home directory!");
 	return -1;
 }
 
-if(auto project_dirs = dire::project::bundle(project_name)) {
+if(auto project_dirs = dire::ProjectDirsBundle::make(project_name)) {
 	auto config = Config::from_dir(projects_dirs->config_dir);
 
 	App::from_conf(*home_dir, config).start();

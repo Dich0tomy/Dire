@@ -8,7 +8,7 @@
 #include <dire/detail/system_dirs/shared.hpp>
 #include <dire/detail/getenv.hpp>
 
-namespace dire::project
+namespace dire
 {
 
 auto name(std::string domain, std::string org, std::string app_name) -> PlatformProjectName
@@ -34,13 +34,13 @@ auto name(std::string domain, std::string org, std::string app_name) -> Platform
 	return PlatformProjectName(domain + "." + org + "." + app_name);
 }
 
-auto bundle(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
+auto ProjectDirsBundle::make(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
 {
-	auto home = base::home_dir();
+	auto home = home_dir();
 
 	if(not home) return {};
 
-	namespace bd = base::detail;
+	namespace bd = detail;
 	using detail::concat_project_path;
 
 	auto config_dir = concat_project_path(bd::config_dir_from_home(*home), std::move(project_name));
@@ -59,12 +59,12 @@ auto bundle(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
 
 auto cache_dir(PlatformProjectName project_name) -> Optional<Path>
 {
-	return detail::map_project_path(base::cache_dir(), std::move(project_name));
+	return detail::map_project_path(cache_dir(), std::move(project_name));
 }
 
 auto config_dir(PlatformProjectName project_name) -> Optional<Path>
 {
-	return detail::map_project_path(base::config_dir(), std::move(project_name));
+	return detail::map_project_path(config_dir(), std::move(project_name));
 }
 
 auto config_local_dir(PlatformProjectName project_name) -> Optional<Path>
@@ -84,7 +84,7 @@ auto data_local_dir(PlatformProjectName project_name) -> Optional<Path>
 
 auto preference_dir(PlatformProjectName project_name) -> Optional<Path>
 {
-	return detail::map_project_path(base::preference_dir(), std::move(project_name));
+	return detail::map_project_path(preference_dir(), std::move(project_name));
 }
 
 auto runtime_dir([[maybe_unused]] PlatformProjectName project_name) -> Optional<Path>
@@ -98,4 +98,4 @@ auto state_dir([[maybe_unused]] PlatformProjectName project_name) -> Optional<Pa
 	return {};
 }
 
-} // namespace dire::project
+} // namespace dire

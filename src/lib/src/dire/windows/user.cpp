@@ -2,10 +2,10 @@
 
 #include <dire/detail/system_dirs/system_dirs.hpp>
 
-namespace dire::user
+namespace dire
 {
 
-auto bundle() -> Optional<UserDirsBundle>
+auto UserDirsBundle::make() -> Optional<UserDirsBundle>
 {
 	auto home = home_dir();
 
@@ -13,9 +13,7 @@ auto bundle() -> Optional<UserDirsBundle>
 		return {};
 	}
 
-	return { {
-		.home_dir = *home,
-
+	return UserDirsBundle {
 		.audio_dir = *audio_dir(),
 		.desktop_dir = *desktop_dir(),
 		.document_dir = *document_dir(),
@@ -26,15 +24,10 @@ auto bundle() -> Optional<UserDirsBundle>
 
 		.font_dir = {},
 		.template_dir = *template_dir(),
-	} };
+	};
 }
 
 namespace system_dirs = dire::detail::system_dirs;
-
-auto home_dir() -> Optional<Path>
-{
-	return system_dirs::known_folder(system_dirs::KnownFolderID::Profile);
-}
 
 auto audio_dir() -> Optional<Path>
 {
@@ -82,4 +75,4 @@ auto video_dir() -> Optional<Path>
 	return system_dirs::known_folder(system_dirs::KnownFolderID::Videos);
 }
 
-} // namespace dire::user
+} // namespace dire

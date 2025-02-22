@@ -10,6 +10,9 @@ configure-linux:
 configure-windows:
 	meson configure --buildtype debug --debug -Db_sanitize=address,undefined --warnlevel 3 {{ debug_build_dir }}
 
+configure-tests:
+	meson configure -Dbuild_tests=true {{ debug_build_dir }}
+
 alias sd := setup-debug
 setup-debug: && configure-linux
 	meson setup {{ debug_build_dir }}
@@ -22,7 +25,7 @@ compile-debug:
 	meson compile -C {{ debug_build_dir }} dire:static_library
 
 alias ct := compile-tests
-compile-tests: setup-debug && compile-debug
+compile-tests: configure-tests
 	meson compile -C {{ debug_build_dir }} dire_test
 
 alias t := run-tests

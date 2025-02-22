@@ -8,7 +8,7 @@
 #include <dire/detail/system_dirs/shared.hpp>
 #include <dire/detail/getenv.hpp>
 
-namespace dire::project
+namespace dire
 {
 
 auto name(std::string domain, [[maybe_unused]] std::string org, [[maybe_unused]] std::string app_name) -> PlatformProjectName
@@ -32,35 +32,35 @@ auto name(std::string domain, [[maybe_unused]] std::string org, [[maybe_unused]]
 	return PlatformProjectName(std::move(app_name));
 }
 
-auto bundle(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
+auto ProjectDirsBundle::make(PlatformProjectName project_name) -> Optional<ProjectDirsBundle>
 {
-	auto home = base::home_dir();
+	auto home = home_dir();
 
 	if(not home) return {};
 
-	namespace bd = base::detail;
+	namespace bd = detail;
 	using detail::concat_project_path;
 
-	return { {
+	return ProjectDirsBundle {
 		.cache_dir = concat_project_path(bd::cache_dir_from_home(*home), std::move(project_name)),
 		.config_dir = concat_project_path(bd::config_dir_from_home(*home), std::move(project_name)),
 		.config_local_dir = concat_project_path(bd::config_dir_from_home(*home), std::move(project_name)),
 		.data_dir = concat_project_path(bd::data_dir_from_home(*home), std::move(project_name)),
 		.data_local_dir = concat_project_path(bd::data_dir_from_home(*home), std::move(project_name)),
 		.preference_dir = concat_project_path(bd::config_dir_from_home(*home), std::move(project_name)),
-		.runtime_dir = base::runtime_dir(),
+		.runtime_dir = ::dire::runtime_dir(),
 		.state_dir = concat_project_path(bd::state_dir_from_home(*home), std::move(project_name)),
-	} };
+	};
 }
 
 auto cache_dir(PlatformProjectName project_name) -> Optional<Path>
 {
-	return detail::map_project_path(base::cache_dir(), std::move(project_name));
+	return detail::map_project_path(cache_dir(), std::move(project_name));
 }
 
 auto config_dir(PlatformProjectName project_name) -> Optional<Path>
 {
-	return detail::map_project_path(base::config_dir(), std::move(project_name));
+	return detail::map_project_path(config_dir(), std::move(project_name));
 }
 
 auto config_local_dir(PlatformProjectName project_name) -> Optional<Path>
@@ -70,7 +70,7 @@ auto config_local_dir(PlatformProjectName project_name) -> Optional<Path>
 
 auto data_dir(PlatformProjectName project_name) -> Optional<Path>
 {
-	return detail::map_project_path(base::data_dir(), std::move(project_name));
+	return detail::map_project_path(data_dir(), std::move(project_name));
 }
 
 auto data_local_dir(PlatformProjectName project_name) -> Optional<Path>
@@ -85,13 +85,13 @@ auto preference_dir(PlatformProjectName project_name) -> Optional<Path>
 
 auto runtime_dir(PlatformProjectName project_name) -> Optional<Path>
 {
-	return detail::map_project_path(base::runtime_dir(), std::move(project_name));
+	return detail::map_project_path(runtime_dir(), std::move(project_name));
 }
 
 auto state_dir(PlatformProjectName project_name) -> Optional<Path>
 
 {
-	return detail::map_project_path(base::state_dir(), std::move(project_name));
+	return detail::map_project_path(state_dir(), std::move(project_name));
 }
 
-} // namespace dire::project
+} // namespace dire
