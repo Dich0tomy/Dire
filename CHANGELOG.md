@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/Dich0tomy/Dire/compare/v0.2.0...v0.2.1) (2025-02-22)
+
+
+### Bug Fixes
+
+* **project:** use `org / name` as windows name ([731de69](https://github.com/Dich0tomy/Dire/commit/731de6964a78fe2f94a42e38b35f185ffb58a210))
+
 ## 0.2.0 (2025-02-22)
 
 
