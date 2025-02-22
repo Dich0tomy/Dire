@@ -1,3 +1,4 @@
+#include <dire/base.hpp>
 #include <dire/user.hpp>
 
 #include <dire/detail/system_dirs/system_dirs.hpp>
@@ -7,23 +8,23 @@ namespace dire
 
 auto UserDirsBundle::make() -> Optional<UserDirsBundle>
 {
-	auto home = home_dir();
+	auto home = ::dire::home_dir();
 
 	if(not home) {
 		return {};
 	}
 
 	return UserDirsBundle {
-		.audio_dir = *audio_dir(),
-		.desktop_dir = *desktop_dir(),
-		.document_dir = *document_dir(),
-		.download_dir = *download_dir(),
-		.picture_dir = *picture_dir(),
-		.video_dir = *video_dir(),
-		.public_dir = *public_dir(),
+		.audio_dir = *::dire::audio_dir(),
+		.desktop_dir = *::dire::desktop_dir(),
+		.document_dir = *::dire::document_dir(),
+		.download_dir = *::dire::download_dir(),
+		.picture_dir = *::dire::picture_dir(),
+		.video_dir = *::dire::video_dir(),
+		.public_dir = *::dire::public_dir(),
 
 		.font_dir = {},
-		.template_dir = *template_dir(),
+		.template_dir = *::dire::template_dir(),
 	};
 }
 
