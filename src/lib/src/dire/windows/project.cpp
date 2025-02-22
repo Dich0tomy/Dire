@@ -48,7 +48,7 @@ auto name(std::string domain, [[maybe_unused]] std::string org, std::string app_
 	);
 
 	return PlatformProjectName(
-		Path(detail::trim(std::move(domain))) / Path(detail::trim(std::move(app_name)))
+		Path(detail::trim(std::move(org))) / Path(detail::trim(std::move(app_name)))
 	);
 }
 
