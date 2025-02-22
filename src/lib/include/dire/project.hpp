@@ -30,7 +30,7 @@ private:
 /**
  * This class stores the platform-specific project name, which is used as a subpath for the project directories.
  *
- * It should be obtained via a call to `dire::project::name()`, which returns a name standarized for the build platform.
+ * It should be obtained via a call to `dire::name()`, which returns a name standarized for the build platform.
  *
  * If you **REALLY** want to enforce your own name, initialize it by using `IReallyWantMyOwnPlatformProjectName`.
  *
