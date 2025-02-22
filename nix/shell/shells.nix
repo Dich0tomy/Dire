@@ -1,7 +1,7 @@
 {
   mkShell,
   nil,
-  justbuild,
+  just,
   gcc11Stdenv,
   llvmPackages_16,
   act,
@@ -28,7 +28,7 @@
     hardeningDisable = ["all"];
 
     nativeBuildInputs = [
-      justbuild
+      just
       nil
 
       meson
