@@ -1,4 +1,8 @@
-# Dire
+<div align="center">
+    <h1>cpp-tools.nvim</h1>
+</div>
+
+---
 
 > [!NOTE]
 > This started as a simple port of [`dirs-dev/directories-rs`](https://github.com/dirs-dev/directories-rs),
@@ -42,9 +46,9 @@ if(auto project_dirs = dire::ProjectDirsBundle::make(project_name)) {
 
 ## Documentation ([diataxis](https://diataxis.fr)\*)
 
-- [How-To's](./docs/how-tos) - guides on how to do common things
+- [How-To's](./docs/how-tos.md) - guides on how to do common things
 - [Reference](https://dich0tomy.github.io/Dire/) - technical reference (namespaces, functions, etc.)
-- [Explanations](./docs/explanations) - explanations of some design choices and **proper usage**
+- [Explanations](./docs/explanations.md) - explanations of some design choices and **proper usage**
 
 \* It's not a complete diataxis because the scope of this project is simply too small to include reasonable
 information in all four sections.
@@ -86,3 +90,4 @@ would fit my needs, but it's.. Rust, not C++ - so I wrote this.
 
 ## License
 
+The project is licensed under `EUPL 1.1`
