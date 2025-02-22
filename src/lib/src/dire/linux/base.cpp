@@ -9,39 +9,40 @@ namespace dire
 
 namespace detail
 {
-auto cache_dir_from_home(dire::Path home) -> dire::Path
+
+auto cache_dir_from_home(Path home) -> Path
 {
-	return dire::detail::getenv("XDG_CACHE_HOME")
-		.and_then(dire::detail::system_dirs::non_absolute_path_to_none)
+	return getenv("XDG_CACHE_HOME")
+		.and_then(system_dirs::non_absolute_path_to_none)
 		.value_or(home.append(".cache"));
 }
 
-auto config_dir_from_home(dire::Path home) -> dire::Path
+auto config_dir_from_home(Path home) -> Path
 {
-	return dire::detail::getenv("XDG_CONFIG_HOME")
-		.and_then(dire::detail::system_dirs::non_absolute_path_to_none)
+	return getenv("XDG_CONFIG_HOME")
+		.and_then(system_dirs::non_absolute_path_to_none)
 		.value_or(home.append(".config"));
 }
 
-auto executable_dir_from_home(dire::Path home) -> dire::Path
+auto executable_dir_from_home(Path home) -> Path
 {
 	// WARNING: this is not officially supported by the xdg spec
-	return dire::detail::getenv("XDG_BIN_HOME")
-		.and_then(dire::detail::system_dirs::non_absolute_path_to_none)
+	return getenv("XDG_BIN_HOME")
+		.and_then(system_dirs::non_absolute_path_to_none)
 		.value_or(home.append(".local/bin"));
 }
 
-auto state_dir_from_home(dire::Path home) -> dire::Path
+auto state_dir_from_home(Path home) -> Path
 {
-	return dire::detail::getenv("XDG_STATE_HOME")
-		.and_then(dire::detail::system_dirs::non_absolute_path_to_none)
+	return getenv("XDG_STATE_HOME")
+		.and_then(system_dirs::non_absolute_path_to_none)
 		.value_or(home.append(".local/state"));
 }
 
-auto data_dir_from_home(dire::Path home) -> dire::Path
+auto data_dir_from_home(Path home) -> Path
 {
-	return dire::detail::getenv("XDG_DATA_HOME")
-		.and_then(dire::detail::system_dirs::non_absolute_path_to_none)
+	return getenv("XDG_DATA_HOME")
+		.and_then(system_dirs::non_absolute_path_to_none)
 		.value_or(home.append(".local/share"));
 }
 

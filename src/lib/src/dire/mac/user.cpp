@@ -5,53 +5,54 @@
 #include <dire/detail/system_dirs/shared.hpp>
 #include <dire/detail/getenv.hpp>
 
+namespace dire
+{
+
 namespace
 {
 
-auto concat_audio_dir(dire::Path const& home) -> dire::Path
+auto concat_audio_dir(Path const& home) -> Path
 {
 	return home / "Music";
 }
 
-auto concat_desktop_dir(dire::Path const& home) -> dire::Path
+auto concat_desktop_dir(Path const& home) -> Path
 {
 	return home / "Desktop";
 }
 
-auto concat_document_dir(dire::Path const& home) -> dire::Path
+auto concat_document_dir(Path const& home) -> Path
 {
 	return home / "Documents";
 }
 
-auto concat_download_dir(dire::Path const& home) -> dire::Path
+auto concat_download_dir(Path const& home) -> Path
 {
 	return home / "Downloads";
 }
 
-auto concat_font_dir(dire::Path const& home) -> dire::Path
+auto concat_font_dir(Path const& home) -> Path
 {
 	return home / "Library" / "Fonts";
 }
 
-auto concat_picture_dir(dire::Path const& home) -> dire::Path
+auto concat_picture_dir(Path const& home) -> Path
 {
 	return home / "Pictures";
 }
 
-auto concat_public_dir(dire::Path const& home) -> dire::Path
+auto concat_public_dir(Path const& home) -> Path
 {
 	return home / "Public";
 }
 
-auto concat_video_dir(dire::Path const& home) -> dire::Path
+auto concat_video_dir(Path const& home) -> Path
 {
 	return home / "Movies";
 }
 
 } // namespace
 
-namespace dire
-{
 
 auto UserDirsBundle::make() -> Optional<UserDirsBundle>
 {

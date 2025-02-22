@@ -91,7 +91,6 @@ jobs:
           [
             { runner: macos-14 },
             { runner: macos-13 },
-            { runner: macos-12 },
           ]
     runs-on: ${{ matrix.build.runner }}
     env:

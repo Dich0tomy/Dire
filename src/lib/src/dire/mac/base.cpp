@@ -4,43 +4,43 @@
 #include <dire/detail/system_dirs/shared.hpp>
 #include <dire/detail/getenv.hpp>
 
+namespace dire
+{
+
 namespace
 {
 
-auto concat_cache_dir(dire::Path const& home) -> dire::Path
+auto concat_cache_dir(Path const& home) -> Path
 {
 	return home / "Library" / "Caches";
 }
 
-auto concat_config_dir(dire::Path const& home) -> dire::Path
+auto concat_config_dir(Path const& home) -> Path
 {
 	return home / "Library" / "Application Support";
 }
 
-auto concat_config_local_dir(dire::Path const& home) -> dire::Path
+auto concat_config_local_dir(Path const& home) -> Path
 {
 	return concat_config_dir(home);
 }
 
-auto concat_data_dir(dire::Path const& home) -> dire::Path
+auto concat_data_dir(Path const& home) -> Path
 {
 	return concat_config_dir(home);
 }
 
-auto concat_data_local_dir(dire::Path const& home) -> dire::Path
+auto concat_data_local_dir(Path const& home) -> Path
 {
 	return concat_config_dir(home);
 }
 
-auto concat_preference_dir(dire::Path const& home) -> dire::Path
+auto concat_preference_dir(Path const& home) -> Path
 {
 	return concat_config_dir(home);
 }
 
 } // namespace
-
-namespace dire
-{
 
 auto BaseDirsBundle::make() -> Optional<BaseDirsBundle>
 {
