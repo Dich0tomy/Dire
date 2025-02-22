@@ -95,7 +95,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Dire </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> </p><blockquote class="doxtable">
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p><div align="center"> <h1>cpp-tools.nvim</h1>
+</div><div align="center"> </div><hr  />
+<blockquote class="doxtable">
 <p>&zwj;[!NOTE] This started as a simple port of <a href="https://github.com/dirs-dev/directories-rs"><code>dirs-dev/directories-rs</code></a>, but deviated in the process, the exact details can be found here. </p>
 </blockquote>
 <p>A complete cross-platform solution for user and data directories discovery with OOTB project support.</p>
@@ -137,21 +139,21 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="ttc" id="anamespacedire_html_adf984751e33a7cf3299390eb6284b651"><div class="ttname"><a href="namespacedire.html#adf984751e33a7cf3299390eb6284b651">dire::name</a></div><div class="ttdeci">auto name(std::string domain, std::string org, std::string app_name) -&gt; PlatformProjectName</div></div>
 <div class="ttc" id="astructdire_1_1ProjectDirsBundle_html_a2bd8e6c26fbdf4ea482bcc7ff9f3ced4"><div class="ttname"><a href="structdire_1_1ProjectDirsBundle.html#a2bd8e6c26fbdf4ea482bcc7ff9f3ced4">dire::ProjectDirsBundle::make</a></div><div class="ttdeci">static auto make(PlatformProjectName project_name) -&gt; Optional&lt; ProjectDirsBundle &gt;</div></div>
 </div><!-- fragment --><p><a href="./src/test">Tests</a> should be simple, readable and comprehensive enough to show all possible usage examples as well.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
-Documentation (&lt;a href="https://diataxis.fr" &gt;diataxis&lt;/a&gt;*)</h1>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Documentation (&lt;a href="https://diataxis.fr" &gt;diataxis&lt;/a&gt;*)</h2>
 <ul>
-<li><a href="./docs/how-tos">How-To's</a> - guides on how to do common things</li>
+<li><a class="el" href="md_docs_2how-tos.html">How-To's</a> - guides on how to do common things</li>
 <li><a href="https://dich0tomy.github.io/Dire/">Reference</a> - technical reference (namespaces, functions, etc.)</li>
-<li><a href="./docs/explanations">Explanations</a> - explanations of some design choices and <b>proper usage</b></li>
+<li><a class="el" href="md_docs_2explanations.html">Explanations</a> - explanations of some design choices and <b>proper usage</b></li>
 <li>It's not a complete diataxis because the scope of this project is simply too small to include reasonable information in all four sections.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md11"></a>
-How it started</h1>
+<h2><a class="anchor" id="autotoc_md11"></a>
+How it started</h2>
 <p>This project started because I wanted a nice cross-platform way of discovering typical data directories.</p>
 <p>The only feasible alternative I found was <a href="https://github.com/sago007/PlatformFolders"><code>sago007/PlatformFolders</code></a>, but it doesn't necessarily expose the API I'd like to use.</p>
 <p>There's an awesome Rust crate <a href="https://github.com/dirs-dev/directories-rs"><code>dirs-dev/directories-rs</code></a> which very much would fit my needs, but it's.. Rust, not C++ - so I wrote this.</p>
-<h1><a class="anchor" id="autotoc_md12"></a>
-Plans</h1>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Plans</h2>
 <p>***** Only if there will be need to, e.g. someone asks for that or it will be a feasible fix for an issue.</p>
 <ul>
 <li>[ ] Add conan and vcpkg packaging methods *****</li>
@@ -173,8 +175,9 @@ Plans</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
-License</h1>
+<h2><a class="anchor" id="autotoc_md13"></a>
+License</h2>
+<p>The project is licensed under <code>EUPL 1.1</code> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

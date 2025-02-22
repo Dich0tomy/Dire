@@ -25,11 +25,11 @@
 var NAVTREE =
 [
   [ "Dire", "index.html", [
-    [ "Documentation (<a href=\"https://diataxis.fr\" >diataxis</a>*)", "index.html#autotoc_md10", null ],
-    [ "How it started", "index.html#autotoc_md11", null ],
-    [ "Plans", "index.html#autotoc_md12", null ],
-    [ "License", "index.html#autotoc_md13", null ],
     [ "Explanations", "md_docs_2explanations.html", [
+      [ "Documentation (<a href=\"https://diataxis.fr\" >diataxis</a>*)", "index.html#autotoc_md10", null ],
+      [ "How it started", "index.html#autotoc_md11", null ],
+      [ "Plans", "index.html#autotoc_md12", null ],
+      [ "License", "index.html#autotoc_md13", null ],
       [ "Local vs non-local dirs", "md_docs_2explanations.html#autotoc_md1", null ],
       [ "Config vs preference dir", "md_docs_2explanations.html#autotoc_md2", null ],
       [ "Cache, state, data, config", "md_docs_2explanations.html#autotoc_md3", null ]
